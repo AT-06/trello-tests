@@ -1,5 +1,3 @@
-
-
 class LoginPage {
     constructor() {
         this.loginEmail = 'input#user';
@@ -8,7 +6,8 @@ class LoginPage {
     }
 
     open() {
-        browser.get('/login');
+        browser.waitForAngularEnabled(false);
+        browser.get('login');
     }
 
     loginAccount(email, password) {
