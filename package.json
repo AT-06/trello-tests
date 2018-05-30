@@ -1,0 +1,27 @@
+{
+  "name": "trello-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AT-06/trello-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AT-06/trello-tests/issues"
+  },
+  "homepage": "https://github.com/AT-06/trello-tests#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "protractor": "^5.3.2"
+  },
+  "dependencies": {
+    "chai-as-promised": "^7.1.1"
+  }
+}
