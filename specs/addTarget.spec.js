@@ -1,8 +1,9 @@
 let loginPage = require('../pages/LoginPage');
 let expect = require('chai').expect;
+let config = require('../config.json');
 
 describe('Add a new Target', function () {
     it('login', function () {
-        loginPage.loginAccount('ariel.gonzales@fundacion-jala.org', 'P@ssw0rd');
+        loginPage.loginAccount(config.email, config.password);
     });
 });

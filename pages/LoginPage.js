@@ -1,3 +1,5 @@
+
+
 class LoginPage {
     constructor() {
         this.loginEmail = 'input#user';
@@ -6,7 +8,7 @@ class LoginPage {
     }
 
     open() {
-        browser.url('/login');
+        browser.get('/login');
     }
 
     loginAccount(email, password) {

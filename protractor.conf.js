@@ -7,6 +7,12 @@ exports.config = {
         './specs/**/*.spec.js'
     ],
     capabilities: {
-        'browserName': 'chrome'
+        browserName: 'chrome'
+    },
+    mochaOpts: { // Some reasonable mocha config
+        reporter: "spec",
+        slow: 3000,
+        ui: 'bdd',
+        timeout: 30000
     }
 }
