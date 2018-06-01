@@ -1,3 +1,5 @@
+let commom = require('../util/Commom');
+
 class LoginPage {
     constructor() {
         this.loginEmail = element(by.css('input#user'));
@@ -8,14 +10,13 @@ class LoginPage {
     open() {
         browser.waitForAngularEnabled(false);
         browser.get('login');
-        browser.elementIsVisible()
     }
 
     loginAccount(email, password) {
         this.open();
-        this.loginEmail.sendKeys(email);
-        this.loginPassword.sendKeys(password);
-        this.loginSubmit.click();
+        commom.setElementValues(this.loginEmail, email);
+        commom.setElementValues(this.loginPassword, password);
+        commom.clickElement(this.loginSubmit);
     }
 }
 
