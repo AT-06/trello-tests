@@ -1,20 +1,21 @@
 class LoginPage {
     constructor() {
-        this.loginEmail = 'input#user';
-        this.loginPassword = 'input#password';
-        this.loginSubmit = 'input#login';
+        this.loginEmail = element(by.css('input#user'));
+        this.loginPassword = element(by.css('input#password'));
+        this.loginSubmit = element(by.css('input#login'));
     }
 
     open() {
         browser.waitForAngularEnabled(false);
         browser.get('login');
+        browser.elementIsVisible()
     }
 
     loginAccount(email, password) {
         this.open();
-        browser.element(this.loginEmail).sendKeys(email);
-        browser.element(this.loginPassword).sendKeys(password);
-        browser.element(this.loginSubmit).click();
+        this.loginEmail.sendKeys(email);
+        this.loginPassword.sendKeys(password);
+        this.loginSubmit.click();
     }
 }
 
