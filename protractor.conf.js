@@ -32,7 +32,7 @@ exports.config = {
      */
     getPageTimeout: 20000,
 
-    mochaOpts: { // Some reasonable mocha config
+    mochaOpts: {
         ui: 'bdd',
         timeout: 99999999
     }
