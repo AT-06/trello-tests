@@ -10,11 +10,16 @@ class LeftSideBar {
         this.panelToCheck = element(by.className('header-logo-default'));
 
         this.quickAddButton = element(by.css('div#header span.icon-add.light'));
+        this.createTeam = element(by.className('js-new-org'));
     }
 
     checkPanel() {
         commom.waitForElement(this.panelToCheck);
         return this.panelToCheck.isDisplayed();
+    }
+
+    clickCreateTeamOption() {
+        commom.clickElement(this.createTeam);
     }
 
     clickAddTeamButton() {
@@ -44,8 +49,12 @@ class LeftSideBar {
         this.clickCreateButton();
     }
 
-    addQuickTeam() {
+    addQuickTeam(nameTeam, descriptionTeam) {
         this.clickQuickButton();
+        this.clickCreateTeamOption();
+        this.setNameTeam(nameTeam);
+        this.setDescriptionTeam(descriptionTeam);
+        this.clickCreateButton();
     }
 }
 

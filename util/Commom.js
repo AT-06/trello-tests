@@ -11,7 +11,6 @@ class Commom {
 
     static clickElement(element) {
         this.waitForElement(element);
-        //console.log("VERIFICAR QUE HIZO CLICK")
         element.click();
     }
 
