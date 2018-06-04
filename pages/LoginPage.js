@@ -1,10 +1,13 @@
 let commom = require('../util/Commom');
+let currentUserLogin = null;
 
 class LoginPage {
     constructor() {
         this.loginEmail = element(by.css('input#user'));
         this.loginPassword = element(by.css('input#password'));
         this.loginSubmit = element(by.css('input#login'));
+        this.userOptions = element(by.css('member-initials'));
+        this.logOut = element(by.css('js-logout'));
     }
 
     open() {
@@ -13,10 +16,24 @@ class LoginPage {
     }
 
     loginAccount(email, password) {
-        this.open();
+        if (email !== currentUserLogin) {
+            if (currentUserLogin == null) {
+                this.open();
+            }
+            else {
+                logOut();
+            }
+        }
         commom.setElementValues(this.loginEmail, email);
         commom.setElementValues(this.loginPassword, password);
         commom.clickElement(this.loginSubmit);
+        currentUserLogin = email;
+    }
+
+    LogÇOut() {
+        commom.clickElement(this.userOptions);
+        commom.clickElement(this.logOut);
+        browser.get('https://trello.com');
     }
 }
 
