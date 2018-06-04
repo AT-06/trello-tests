@@ -11,6 +11,7 @@ class LeftSideBar {
 
         this.quickAddButton = element(by.css('div#header span.icon-add.light'));
         this.createTeam = element(by.className('js-new-org'));
+
     }
 
     checkPanel() {
@@ -47,6 +48,7 @@ class LeftSideBar {
         this.setNameTeam(nameTeam);
         this.setDescriptionTeam(descriptionTeam);
         this.clickCreateButton();
+        commom.browserPause();
     }
 
     addQuickTeam(nameTeam, descriptionTeam) {
@@ -55,6 +57,7 @@ class LeftSideBar {
         this.setNameTeam(nameTeam);
         this.setDescriptionTeam(descriptionTeam);
         this.clickCreateButton();
+        commom.browserPause();
     }
 }
 

@@ -7,6 +7,18 @@ class LoginPage {
         this.loginSubmit = element(by.css('input#login'));
     }
 
+    setLoginEmail(email) {
+        return commom.setElementValues(this.loginEmail, email);
+    }
+
+    setLoginPassword(password) {
+        commom.setElementValues(this.loginPassword, password);
+    }
+
+    clickLoginSubmit() {
+        commom.clickElement(this.loginSubmit);
+    }
+
     open() {
         browser.waitForAngularEnabled(false);
         browser.get('login');
@@ -14,9 +26,14 @@ class LoginPage {
 
     loginAccount(email, password) {
         this.open();
-        commom.setElementValues(this.loginEmail, email);
-        commom.setElementValues(this.loginPassword, password);
-        commom.clickElement(this.loginSubmit);
+        this.setLoginEmail(email);
+        this.setLoginPassword(password);
+        this.clickLoginSubmit();
+    }
+
+    sendHome(){
+        browser.pause(2000);
+        browser.get('https://trello.com/');
     }
 }
 
