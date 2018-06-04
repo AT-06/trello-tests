@@ -1,6 +1,7 @@
 let loginPage = require('../pages/LoginPage');
 let leftSideBar = require('../pages/LeftSideBar');
-let boardsMenu = require('../pages/BoardsMenu');
+let content = require('../pages/ContentPage');
+let boards = require('../pages/BoardsPage');
 let expect = require('chai').expect;
 let config = require('../config.json');
 
@@ -8,7 +9,8 @@ describe('Add a Board', function () {
     let group = {
         nameGroup: 'Team to Test',
         descriptionTeam: 'description about team to delete',
-        groupToDelete: 'Team to Test'
+        groupToDelete: 'Team to Test',
+        nameBoard: 'BoardTests'
     };
 
     beforeEach(function () {
@@ -19,11 +21,10 @@ describe('Add a Board', function () {
 
     afterEach(function () {
         loginPage.sendHome();
-        boardsMenu.selectGroup(group.groupToDelete);
+        content.selectGroup(group.groupToDelete);
     });
 
     it('Add a Board', function () {
-        boardsMenu.addBoard(group.groupToDelete, group.nameGroup);
-
+        content.addBoard(group.nameBoard, group.nameGroup);
     });
 });

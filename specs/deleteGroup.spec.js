@@ -1,6 +1,6 @@
 let loginPage = require('../pages/LoginPage');
 let leftSideBar = require('../pages/LeftSideBar');
-let boardsMenu = require('../pages/BoardsMenu');
+let boardsMenu = require('../pages/ContentPage');
 let settingMenu = require('../pages/SettingsMenu');
 let expect = require('chai').expect;
 let config = require('../config.json');
