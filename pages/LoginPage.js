@@ -23,14 +23,15 @@ class LoginPage {
             else {
                 logOut();
             }
+            commom.setElementValues(this.loginEmail, email);
+            commom.setElementValues(this.loginPassword, password);
+            commom.clickElement(this.loginSubmit);
+            currentUserLogin = email;
         }
-        commom.setElementValues(this.loginEmail, email);
-        commom.setElementValues(this.loginPassword, password);
-        commom.clickElement(this.loginSubmit);
-        currentUserLogin = email;
+
     }
 
-    LogÇOut() {
+    LogOut() {
         commom.clickElement(this.userOptions);
         commom.clickElement(this.logOut);
         browser.get('https://trello.com');
