@@ -12,15 +12,21 @@ class LoginPage {
     }
 
     setLoginEmail(email) {
+        //return new Promise(function () {
         return commom.setElementValues(this.loginEmail, email);
+        //});
     }
 
     setLoginPassword(password) {
-        commom.setElementValues(this.loginPassword, password);
+        //return new Promise(function () {
+        return commom.setElementValues(this.loginPassword, password);
+        //});
     }
 
     clickLoginSubmit() {
-        commom.clickElement(this.loginSubmit);
+        //return new Promise(function () {
+        return commom.clickElement(this.loginSubmit);
+        //});
     }
 
     open() {
@@ -30,7 +36,7 @@ class LoginPage {
 
     loginAccount(email, password) {
         if (email !== currentUserLogin) {
-            if (currentUserLogin ==null) {
+            if (currentUserLogin == null) {
                 this.open();
             }
             else {
@@ -43,10 +49,11 @@ class LoginPage {
         }
     }
 
-    sendHome(){
+    sendHome() {
         browser.pause(2000);
         browser.get('https://trello.com/');
     }
+
     LogOut() {
         commom.clickElement(this.usserOptions);
         commom.clickElement(this.logOut);

@@ -8,6 +8,18 @@ class ContentPage {
         this.groupList = '//h3[text()="GROUPNAME"]/parent::div/parent::div//span[text()="Create new board…"]//ancestor::a';
         this.boardTittle = element(by.className('subtle-input'));
         this.createBoardButton = element(by.css('#classic button.primary'));
+        this.nameTeam = '//h3[text()="GROUPNAME"]';
+        this.boardAdded = '//h3[text()="GROUPNAME"]/parent::div/parent::div//span[text()="BOARD"]//ancestor::a';
+    }
+
+    checkNameTeam(group) {
+        this.teamList = element(by.xpath(this.nameTeam.replace('GROUPNAME', group)));
+        return this.teamList.isDisplayed();
+    }
+
+    checkBoard(group, board) {
+        this.board = element(by.xpath(this.boardAdded.replace('GROUPNAME', group).replace('BOARD', board)));
+        return this.board.getText();
     }
 
     clickCreateBoardButton() {
@@ -43,6 +55,10 @@ class ContentPage {
         this.setBoardTittle(boardName);
         this.clickCreateBoardButton();
         commom.browserPause();
+    }
+
+    editGroup(boardName){
+
     }
 }
 

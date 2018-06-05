@@ -21,16 +21,17 @@ class Commom {
 
     static setElementValues(element, values) {
         this.waitForElement(element);
+        element.clear();
         element.sendKeys(values);
     }
 
     static getTextElement(element) {
         this.waitForElement(element);
-        element.getText();
+        return element.getText();
     }
 
     static browserPause() {
-        browser.pause(1500);
+        browser.pause(2000);
     }
 }
 

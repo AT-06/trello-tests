@@ -1,8 +1,9 @@
 let loginPage = require('../pages/LoginPage');
 let leftSideBar = require('../pages/LeftSideBar');
 let boardsMenu = require('../pages/ContentPage');
+let settingMenu = require('../pages/SettingsMenu');
 let expect = require('chai').expect;
-let config = require('../config.json');
+let config = require('../config');
 
 describe('Add a new Group', function () {
 
@@ -19,14 +20,16 @@ describe('Add a new Group', function () {
     afterEach(function () {
         loginPage.sendHome();
         boardsMenu.selectGroup(group.groupToDelete);
+        settingMenu.deleteGroupSettingsMenu();
     });
 
-    it('Create a group', function () {
+    /*it('Create a group', async function () {
         leftSideBar.addTeam(group.nameGroup, group.descriptionTeam);
-    });
+        expect(await settingMenu.getNameGroup()).to.have.equal(group.nameGroup);
+    });*/
 
-    it('Create a quick group', function () {
+    it('Create a quick group', async function () {
         leftSideBar.addQuickTeam(group.nameGroup, group.descriptionTeam);
-
+        expect(await settingMenu.getNameGroup()).to.have.equal(group.nameGroup);
     });
 });

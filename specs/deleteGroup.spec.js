@@ -18,8 +18,9 @@ describe('Delete a Group', function () {
         loginPage.sendHome();
     });
 
-    it('Delete a group', function () {
+    it('Delete a group', async function () {
         boardsMenu.selectGroup(group.groupToDelete);
         settingMenu.deleteGroupSettingsMenu();
+        expect(await boardsMenu.checkNameTeam(group.groupToDelete)).to.not.have.equal(group.groupToDelete);
     });
 });

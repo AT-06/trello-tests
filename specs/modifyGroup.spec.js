@@ -2,16 +2,15 @@ let loginPage = require('../pages/LoginPage');
 let leftSideBar = require('../pages/LeftSideBar');
 let content = require('../pages/ContentPage');
 let settingMenu = require('../pages/SettingsMenu');
-let boards = require('../pages/BoardsPage');
 let expect = require('chai').expect;
 let config = require('../config.json');
 
-describe('Add a Board', function () {
+describe('Edit a Group', function () {
     let group = {
-        nameGroup: 'Team to Test',
+        nameGroup: 'Team to Delete',
         descriptionTeam: 'description about team to delete',
-        groupToDelete: 'Team to Test',
-        nameBoard: 'BoardTests'
+        groupToDelete: 'Team to Delete',
+        newName: 'NewEditGroup'
     };
 
     beforeEach(function () {
@@ -21,13 +20,16 @@ describe('Add a Board', function () {
     });
 
     afterEach(function () {
+        //settingMenu.clickBackButton();
         loginPage.sendHome();
         content.selectGroup(group.groupToDelete);
         settingMenu.deleteGroupSettingsMenu();
     });
 
-    it('Add a Board', async function () {
-        content.addBoard(group.nameBoard, group.nameGroup);
-        expect(await content.checkBoard(group.nameGroup, group.nameBoard)).to.have.equal(group.nameBoard);
+    it('Edit a group', async function () {
+        content.selectGroup(group.groupToDelete);
+        settingMenu.editGroup(group.newName);
+        expect(await settingMenu.getNameGroup()).to.have.equal(group.newName);
+        //  settingMenu.deleteGroupSettingsMenu();
     });
 });
