@@ -1,6 +1,6 @@
 let commom = require('../util/Commom');
 
-class BoardsMenu {
+class ContentPage {
     constructor() {
         //improve this selector.
         this.boardsButton = element(by.xpath('//span[text()="Boards" and @class="app-scripts-views-home-presentational-tab__tabText__212hs" ]'));
@@ -46,4 +46,4 @@ class BoardsMenu {
     }
 }
 
-module.exports = new BoardsMenu();
+module.exports = new ContentPage();

@@ -24,16 +24,13 @@ class Commom {
         element.sendKeys(values);
     }
 
-    static browserPause() {
-        browser.pause(1500);
+    static getTextElement(element) {
+        this.waitForElement(element);
+        element.getText();
     }
 
-    // Return the last element on list.
-    static searchGroup(elementCSS, difference) {
-        let lasElement = this.getElement(elementCSS, timeToWait);
-        let lastProjectIndex = lasElement.elements('li').value.length - difference;
-        return lasElement.elements('li').value[lastProjectIndex];
-
+    static browserPause() {
+        browser.pause(1500);
     }
 }
 
