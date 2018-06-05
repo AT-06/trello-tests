@@ -4,7 +4,7 @@ class Commom {
 
     static waitForElement(element) {
         browser.wait(function () {
-            browser.sleep(3000)
+            browser.sleep(1500)
                 .then(function () {
                     console.log("waiting for the element");
                 });
