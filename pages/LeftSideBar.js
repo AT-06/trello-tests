@@ -6,6 +6,7 @@ class LeftSideBar {
         this.nameTeam = element(by.css('#org-display-name'));
         this.descriptionTeam = element(by.css('#org-desc'));
         this.createButton = element(by.css('div#classic input.primary.wide.js-save'));
+        this.nameTeamView = element(by.css('u-inline'));
 
         this.panelToCheck = element(by.className('header-logo-default'));
 
@@ -39,6 +40,10 @@ class LeftSideBar {
         commom.clickElement(this.createButton);
     }
 
+    nameTeamOnView() {
+        commom.elementOnView(this.nameTeamView)
+    }
+
     clickQuickButton() {
         commom.clickElement(this.quickAddButton);
     }
@@ -49,6 +54,10 @@ class LeftSideBar {
         this.setDescriptionTeam(descriptionTeam);
         this.clickCreateButton();
         commom.browserPause();
+    }
+
+    viewTeam(nameTeam) {
+        this.nameTeamOnView(nameTeam);
     }
 
     addQuickTeam(nameTeam, descriptionTeam) {
