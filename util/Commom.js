@@ -4,7 +4,10 @@ class Commom {
 
     static waitForElement(element) {
         browser.wait(function () {
-            browser.sleep(1500);
+            browser.sleep(1500)
+                .then(function () {
+                    console.log("waiting for the element");
+                });
             return element.isDisplayed();
         }, timeToWait);
     }
@@ -32,6 +35,16 @@ class Commom {
 
     static browserPause() {
         browser.pause(2000);
+    }
+
+    static elementOnView(elementCSS, elementName) {
+        let elementToReturn = null;
+        this.getElement(elementCSS, timeToWait).elements('span').value.forEach(element => {
+            if (element.getText().includes(elementName)) {
+                elementToReturn = element;
+            }
+        });
+        return elementToReturn.toString();
     }
 }
 

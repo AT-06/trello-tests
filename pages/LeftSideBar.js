@@ -7,7 +7,6 @@ class LeftSideBar {
         this.descriptionTeam = element(by.css('#org-desc'));
         this.createButton = element(by.css('div#classic input.primary.wide.js-save'));
 
-
         this.quickAddButton = element(by.css('div#header span.icon-add.light'));
         this.createTeam = element(by.className('js-new-org'));
 
