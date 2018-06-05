@@ -21,9 +21,9 @@ describe('Add a new Group', function () {
         boardsMenu.selectGroup(group.groupToDelete);
     });
 
-    /*it('Create a group', function () {
+    it('Create a group', function () {
         leftSideBar.addTeam(group.nameGroup, group.descriptionTeam);
-    });*/
+    });
 
     it('Create a quick group', function () {
         leftSideBar.addQuickTeam(group.nameGroup, group.descriptionTeam);
