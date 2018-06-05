@@ -6,7 +6,6 @@ class LeftSideBar {
         this.nameTeam = element(by.css('#org-display-name'));
         this.descriptionTeam = element(by.css('#org-desc'));
         this.createButton = element(by.css('div#classic input.primary.wide.js-save'));
-        
         this.panelToCheck = element(by.className('header-logo-default'));
 
         this.quickAddButton = element(by.css('div#header span.icon-add.light'));
