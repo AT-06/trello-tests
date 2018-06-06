@@ -57,6 +57,7 @@ class ContentPage {
         this.setBoardTittle(boardName);
         this.clickCreateBoardButton();
         commom.browserPause();
+        commom.browserPause();
     }
 }
 

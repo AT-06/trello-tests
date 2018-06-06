@@ -50,7 +50,7 @@ class Commom {
     }
 
     static browserPause() {
-        browser.pause(2500);
+        browser.pause(8000);
     }
 
     static elementOnView(elementCSS, elementName) {

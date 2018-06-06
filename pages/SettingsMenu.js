@@ -38,8 +38,9 @@ class SettingsMenu {
     }
 
     editGroup(values) {
-        this.clickEditButton();
-        this.setNameGroup(values);
+        this.clickEditButton()
+            .then(this.setNameGroup(values));
+        ;
         this.clickSaveButton();
         commom.browserPause();
     }

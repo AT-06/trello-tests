@@ -5,7 +5,6 @@ class LeftSideBar {
         this.addTeamButton = element(by.xpath('//span[text()= "Create a team"]'));
     }
 
-
     clickAddTeamButton() {
         return commom.clickElement(this.addTeamButton);
     }

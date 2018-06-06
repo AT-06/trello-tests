@@ -25,8 +25,8 @@ describe('Edit a Group', function () {
         settingMenu.deleteGroupSettingsMenu();
     });
     it('Edit a group', async function () {
-        content.selectGroup(group.groupToDelete);
-        settingMenu.editGroup(group.newName);
-        expect(await settingMenu.getNameGroup()).to.have.equal(group.newName);
+        await content.selectGroup(group.groupToDelete);
+        await settingMenu.editGroup(group.newName);
+        expect( settingMenu.getNameGroup()).to.have.equal(group.newName);
     });
 });

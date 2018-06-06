@@ -21,14 +21,14 @@ describe('Add a Board', function () {
     });
 
     afterEach(function () {
-        toolBar.clickReturnButton();
+        /*toolBar.clickReturnButton();
         content.selectGroup(group.groupToDelete);
-        settingMenu.deleteGroupSettingsMenu();
+        settingMenu.deleteGroupSettingsMenu();*/
     });
 
     it('Add a Board', async function () {
         content.addBoard(group.nameBoard, group.nameGroup);
-        //expect(await content.checkBoard(group.nameGroup, group.nameBoard)).to.have.equal(group.nameBoard);
+        // expect(await content.checkBoard(group.nameGroup, group.nameBoard)).to.have.equal(group.nameBoard);
         //expect(await boards.getNameBoard()).to.have.equal(group.nameBoard);
     });
 });

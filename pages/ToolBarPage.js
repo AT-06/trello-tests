@@ -26,7 +26,6 @@ class ToolBarPage {
         commom.addQuickTeam(nameTeam, descriptionTeam);
         commom.browserPause();
     }
-
 }
 
 module.exports = new ToolBarPage();
