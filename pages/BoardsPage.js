@@ -6,7 +6,7 @@ class BoardsPage {
     }
 
     getNameBoard() {
-        return this.boardsName.getText();
+        return commom.getTextElement(this.boardsName);
     }
 }
 

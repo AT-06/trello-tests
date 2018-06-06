@@ -19,7 +19,7 @@ class ContentPage {
 
     checkBoard(group, board) {
         this.board = element(by.xpath(this.boardAdded.replace('GROUPNAME', group).replace('BOARD', board)));
-        return this.board.getText();
+        return commom.getTextElement(this.board);
     }
 
     clickCreateBoardButton() {
@@ -45,6 +45,7 @@ class ContentPage {
     }
 
     selectGroup(group) {
+        commom.browserPause();
         this.clickBoardsButton();
         this.clickSelectSetting(group);
     }
@@ -57,9 +58,6 @@ class ContentPage {
         commom.browserPause();
     }
 
-    editGroup(boardName){
-
-    }
 }
 
 module.exports = new ContentPage();
