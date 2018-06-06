@@ -12,21 +12,15 @@ class LoginPage {
     }
 
     setLoginEmail(email) {
-        //return new Promise(function () {
         return commom.setElementValues(this.loginEmail, email);
-        //});
     }
 
     setLoginPassword(password) {
-        //return new Promise(function () {
         return commom.setElementValues(this.loginPassword, password);
-        //});
     }
 
     clickLoginSubmit() {
-        //return new Promise(function () {
         return commom.clickElement(this.loginSubmit);
-        //});
     }
 
     open() {

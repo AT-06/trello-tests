@@ -26,11 +26,11 @@ exports.config = {
      * should be longer than the maximum time your application needs to
      * stabilize between tasks.
      */
-    allScriptsTimeout: 10000,
+    allScriptsTimeout: 5000,
     /**
      * How long to wait for a page to load.
      */
-    getPageTimeout: 20000,
+    getPageTimeout: 6000,
 
     mochaOpts: {
         reporter: 'spec',
