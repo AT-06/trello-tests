@@ -1,5 +1,4 @@
 let loginPage = require('../../pages/LoginPage');
-//let leftSideBar = require('../../pages/LeftSideBar');
 let content = require('../../pages/ContentPage');
 let settingMenu = require('../../pages/SettingsMenu');
 let toolBar = require('../../pages/ToolBarPage');

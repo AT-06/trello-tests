@@ -14,7 +14,7 @@ class ContentPage {
 
     checkNameTeam(group) {
         this.teamList = element(by.xpath(this.nameTeam.replace('GROUPNAME', group)));
-        return this.teamList.isDisplayed();
+        return this.teamList.isPresent();
     }
 
     checkBoard(group, board) {
@@ -23,6 +23,7 @@ class ContentPage {
     }
 
     clickCreateBoardButton() {
+        //commom.browserPause();
         commom.submitElement(this.createBoardButton);
     }
 
@@ -57,7 +58,6 @@ class ContentPage {
         this.clickCreateBoardButton();
         commom.browserPause();
     }
-
 }
 
 module.exports = new ContentPage();

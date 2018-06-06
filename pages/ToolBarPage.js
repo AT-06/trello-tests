@@ -8,15 +8,16 @@ class ToolBarPage {
     }
 
     clickReturnButton() {
+        commom.browserPause();
         return commom.clickElement(this.returnButton);
     }
 
     clickQuickButton() {
-        return commom.clickElement(this.quickAddButton);
+        commom.clickElement(this.quickAddButton);
     }
 
     clickCreateTeamOption() {
-        return commom.clickElement(this.createTeam);
+        commom.clickElement(this.createTeam);
     }
 
     addQuickTeamSinceToolbar(nameTeam, descriptionTeam) {
@@ -25,6 +26,7 @@ class ToolBarPage {
         commom.addQuickTeam(nameTeam, descriptionTeam);
         commom.browserPause();
     }
+
 }
 
 module.exports = new ToolBarPage();
