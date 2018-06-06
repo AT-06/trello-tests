@@ -23,7 +23,6 @@ describe('Add a new Team', function () {
         boardsMenu.selectGroup(group.groupToDelete);
         settingMenu.deleteGroupSettingsMenu();
     });
-
     it('Create a Team', async function () {
         leftSideBar.addTeam(group.nameGroup, group.descriptionTeam);
         expect(await settingMenu.getNameGroup()).to.have.equal(group.nameGroup);

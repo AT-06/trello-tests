@@ -30,11 +30,12 @@ exports.config = {
     /**
      * How long to wait for a page to load.
      */
-    getPageTimeout: 6000,
+    getPageTimeout: 10000,
 
     mochaOpts: {
         reporter: 'spec',
         ui: 'bdd',
         timeout: 99999999
-    }
+    },
+    //SELENIUM_PROMISE_MANAGER: false
 };

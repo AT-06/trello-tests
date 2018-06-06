@@ -23,6 +23,7 @@ class SettingsMenu {
     }
 
     getNameGroup() {
+        commom.browserPause();
         return commom.getTextElement(this.groupName);
     }
 

@@ -22,6 +22,6 @@ describe('Delete a Group', function () {
     it('Delete a group', async function () {
         content.selectGroup(group.groupToDelete);
         settingMenu.deleteGroupSettingsMenu();
-        expect(await content.checkNameTeam(group.groupToDelete)).to.not.have.equal(group.groupToDelete);
+        expect(await content.checkNameTeam(group.groupToDelete)).to.not.have.equal(true);
     });
 });
