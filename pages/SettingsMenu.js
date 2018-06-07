@@ -22,9 +22,10 @@ class SettingsMenu {
         return commom.clickElement(this.editButton);
     }
 
-    getNameGroup() {
-        commom.browserPause();
-        return commom.getTextElement(this.groupName);
+    getNameGroup(nameGroup) {
+        // return commom.browserPause()
+        //     .then(commom.getTextElement(this.groupName));
+        return commom.getTextElement(this.groupName, nameGroup);
     }
 
     clickDeleteOption() {
