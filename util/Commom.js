@@ -14,8 +14,8 @@ class Commom {
 
     static addQuickTeam(nameTeamInput, descriptionTeamInput) {
         this.setElementValues(nameTeam, nameTeamInput);
-        this.setElementValues(descriptionTeam, descriptionTeamInput);
-        this.clickElement(createButton);
+        return this.setElementValues(descriptionTeam, descriptionTeamInput)
+            .then(this.clickElement(createButton));
     }
 
     static waitForElement(element) {
@@ -24,24 +24,24 @@ class Commom {
                 .then(function () {
                     console.log("waiting for the element");
                 });
-            return element.isDisplayed();
+            return element.isDisplayed() && element.isPresent();
         }, timeToWait);
     }
 
     static clickElement(element) {
         this.waitForElement(element);
-        element.click();
+        return element.click();
     }
 
     static submitElement(element) {
         this.waitForElement(element);
-        element.submit();
+        return element.submit();
     }
 
     static setElementValues(element, values) {
         this.waitForElement(element);
         element.clear();
-        element.sendKeys(values);
+        return element.sendKeys(values);
     }
 
     static getTextElement(element) {

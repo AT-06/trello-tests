@@ -20,7 +20,7 @@ class LoginPage {
     }
 
     clickLoginSubmit() {
-        return commom.clickElement(this.loginSubmit);
+        return commom.clickElement(this.loginSubmit).promise;
     }
 
     open() {
@@ -36,16 +36,14 @@ class LoginPage {
             else {
                 LogOut();
             }
-            this.setLoginEmail(email);
-            this.setLoginPassword(password);
-            this.clickLoginSubmit();
-            currentUserLogin = email;
+        this.setLoginEmail(email);
+        return this.setLoginPassword(password).then(this.clickLoginSubmit());
         }
     }
 
     sendHome() {
         browser.pause(2000);
-        browser.get('https://trello.com/');
+        return browser.get('https://trello.com/');
     }
 
     LogOut() {

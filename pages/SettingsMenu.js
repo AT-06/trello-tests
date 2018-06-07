@@ -10,16 +10,16 @@ class SettingsMenu {
     }
 
     clickSaveButton() {
-        commom.clickElement(this.saveButton);
+        return commom.clickElement(this.saveButton);
     }
 
     setNameGroup(values) {
-        commom.setElementValues(this.nameGroup, values);
+        return commom.setElementValues(this.nameGroup, values);
 
     }
 
     clickEditButton() {
-        commom.clickElement(this.editButton);
+        return commom.clickElement(this.editButton);
     }
 
     getNameGroup() {
@@ -28,13 +28,12 @@ class SettingsMenu {
     }
 
     clickDeleteOption() {
-        commom.clickElement(this.deleteOption);
+        return commom.clickElement(this.deleteOption);
     }
 
 
     deleteGroupSettingsMenu() {
-        this.clickDeleteOption();
-        commom.clickDeleteButton();
+        return this.clickDeleteOption().then(commom.clickDeleteButton());
     }
 
     editGroup(values) {

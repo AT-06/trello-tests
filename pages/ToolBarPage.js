@@ -8,25 +8,25 @@ class ToolBarPage {
     }
 
     clickReturnButton() {
-        commom.browserPause();
         return commom.clickElement(this.returnButton);
     }
 
     clickQuickButton() {
-        commom.clickElement(this.quickAddButton);
+        return commom.clickElement(this.quickAddButton);
     }
 
     clickCreateTeamOption() {
-        commom.clickElement(this.createTeam);
+        return commom.clickElement(this.createTeam);
     }
 
     addQuickTeamSinceToolbar(nameTeam, descriptionTeam) {
         this.clickQuickButton();
-        this.clickCreateTeamOption();
-        commom.addQuickTeam(nameTeam, descriptionTeam);
-        commom.browserPause();
+        return this.clickCreateTeamOption()
+            .then(commom.addQuickTeam(nameTeam, descriptionTeam));
+        //this.clickCreateTeamOption();
+        //commom.addQuickTeam(nameTeam, descriptionTeam);
+        // commom.browserPause();
     }
-
 }
 
 module.exports = new ToolBarPage();

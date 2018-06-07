@@ -24,31 +24,30 @@ class ContentPage {
 
     clickCreateBoardButton() {
         //commom.browserPause();
-        commom.submitElement(this.createBoardButton);
+        return commom.submitElement(this.createBoardButton);
     }
 
     setBoardTittle(boardName) {
-        commom.setElementValues(this.boardTittle, boardName);
+        return commom.setElementValues(this.boardTittle, boardName);
     }
 
     clickBoardsButton() {
-        commom.clickElement(this.boardsButton);
+        return commom.clickElement(this.boardsButton);
     }
 
     clickSelectSetting(group) {
         this.groupsPanel = element(by.xpath(this.pathElement.replace('GROUPNAME', group)));
-        commom.clickElement(this.groupsPanel);
+        return commom.clickElement(this.groupsPanel);
     }
 
     clickSelectMembers(group) {
         this.groupsMenu = element(by.xpath(this.groupList.replace('GROUPNAME', group)));
-        commom.clickElement(this.groupsMenu);
+        return commom.clickElement(this.groupsMenu);
     }
 
     selectGroup(group) {
         commom.browserPause();
-        this.clickBoardsButton();
-        this.clickSelectSetting(group);
+        return this.clickBoardsButton().then(this.clickSelectSetting(group));
     }
 
     addBoard(boardName, group) {
