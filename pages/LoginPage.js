@@ -1,7 +1,15 @@
-let commom = require('../util/Commom');
+'use strict';
+let commonActions = require('../util/Commom');
 let currentUserLogin = null;
 
+/**
+ * PageObject to login on Trello.
+ */
 class LoginPage {
+
+    /**
+     * Constructor of PageObject.
+     */
     constructor() {
         this.loginEmail = element(by.css('input#user'));
         this.loginPassword = element(by.css('input#password'));
@@ -11,46 +19,59 @@ class LoginPage {
 
     }
 
+    /**
+     * Method to set the email Input Field.
+     * @param email Value Provided.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
     setLoginEmail(email) {
-        return commom.setElementValues(this.loginEmail, email);
+        console.log(1)
+        return commonActions.setElementValues(this.loginEmail, email);
     }
 
+    /**
+     * Method to set the password Input Field.
+     * @param password Value Provided.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     *
+     */
     setLoginPassword(password) {
-        return commom.setElementValues(this.loginPassword, password);
+        return commonActions.setElementValues(this.loginPassword, password);
     }
 
+    /**
+     * Method to click on login button.
+     * @returns {Promise.<TResult>} Promise.
+     */
     clickLoginSubmit() {
-        return commom.clickElement(this.loginSubmit).promise;
+        return commonActions.clickElement(this.loginSubmit);
     }
 
+    /**
+     * Method to go login page on Trello.
+     * @returns {promise.Promise<any>}Promise.
+     *
+     */
     open() {
-        browser.waitForAngularEnabled(false);
-        browser.get('login');
+        return commonActions.goToPage('login');
     }
 
+    /**
+     * Method to login on Trello.
+     * @param email Value Provided.
+     * @param password Value Provided.
+     * @returns {promise.Promise<Promise<TResult>>} Promise.
+     *
+     */
     loginAccount(email, password) {
-        if (email !== currentUserLogin) {
-            if (currentUserLogin == null) {
-                this.open();
-            }
-            else {
-                LogOut();
-            }
-        this.setLoginEmail(email);
-        return this.setLoginPassword(password).then(this.clickLoginSubmit());
-        }
+        return this.open()
+            .then(() => this.setLoginEmail(email))
+            .then(() => this.setLoginPassword(password))
+            .then(() => this.clickLoginSubmit())
+            .then(()=> browser.sleep(7000));
+
     }
 
-    sendHome() {
-        browser.pause(2000);
-        return browser.get('https://trello.com/');
-    }
-
-    LogOut() {
-        commom.clickElement(this.usserOptions);
-        commom.clickElement(this.logOut);
-        browser.url('login');
-    }
 }
 
 module.exports = new LoginPage();
