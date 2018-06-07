@@ -13,15 +13,15 @@ describe('Delete a Group', function () {
         groupToDelete: 'Team to Delete'
     };
 
-    beforeEach(function () {
-        loginPage.loginAccount(config.email, config.password);
-        toolBar.addQuickTeamSinceToolbar(group.nameGroup, group.descriptionTeam);
-        loginPage.sendHome();
+    beforeEach(async function () {
+        await loginPage.loginAccount(config.email, config.password);
+        await toolBar.addQuickTeamSinceToolbar(group.nameGroup, group.descriptionTeam);
+        await toolBar.clickReturnButton();
     });
 
     it('Delete a group', async function () {
-        content.selectGroup(group.groupToDelete);
-        settingMenu.deleteGroupSettingsMenu();
-        expect(await content.checkNameTeam(group.groupToDelete)).to.not.have.equal(true);
+        await content.selectGroup(group.groupToDelete);
+        await settingMenu.deleteGroupSettingsMenu();
+        expect(content.checkNameTeam(group.groupToDelete)).to.not.have.equal(true);
     });
 });
