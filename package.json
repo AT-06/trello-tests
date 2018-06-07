@@ -2,7 +2,7 @@
   "name": "trello-tests",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "protractor.conf.js",
   "scripts": {
     "test": "protractor protractor.conf.js",
     "dockerChrome": "protractor protractor.dockerChrome.conf.js",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/AT-06/trello-tests#readme",
   "devDependencies": {
     "chai": "^4.1.2",
+    "mocha": "^5.2.0",
     "mocha-allure-reporter": "^1.4.0",
     "protractor": "^5.3.2"
   },
