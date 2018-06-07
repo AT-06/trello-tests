@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/AT-06/trello-tests#readme",
   "devDependencies": {
+    "async": "^2.6.1",
     "chai": "^4.1.2",
     "mocha-allure-reporter": "^1.4.0",
     "protractor": "^5.3.2"

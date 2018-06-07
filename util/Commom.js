@@ -3,7 +3,7 @@ const nameTeam = element(by.css('#org-display-name'));
 const descriptionTeam = element(by.css('#org-desc'));
 const createButton = element(by.css('div#classic input.primary.wide.js-save'));
 const deleteButton = element(by.className('js-confirm full negate'));
-
+const expectedConditions = protractor.ExpectedConditions;
 class Commom {
 
 
@@ -18,19 +18,31 @@ class Commom {
             .then(this.clickElement(createButton));
     }
 
+    /**
+     * Method to wait a element.
+     * @param element WebElement.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
     static waitForElement(element) {
-        browser.wait(function () {
-            browser.sleep(1500)
-                .then(function () {
-                    console.log("waiting for the element");
-                });
-            return element.isDisplayed() && element.isPresent();
-        }, timeToWait);
+        let isVisible = expectedConditions.visibilityOf(element);
+        let isReady = expectedConditions.presenceOf(element);
+        return browser.wait(expectedConditions.and(isVisible, isReady))
+            .then(() => browser.sleep(1500));
+    }
+
+    /**
+     * Method to wait a element to be click able.
+     * @param element WebElement.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
+    static waitForElementBeClickable(element) {
+        return this.waitForElement(element)
+            .then(() => browser.wait(expectedConditions.elementToBeClickable(element)));
     }
 
     static clickElement(element) {
-        this.waitForElement(element);
-        return element.click();
+        return this.waitForElementBeClickable(element)
+            .then(() => element.click());
     }
 
     static submitElement(element) {
@@ -38,10 +50,26 @@ class Commom {
         return element.submit();
     }
 
-    static setElementValues(element, values) {
-        this.waitForElement(element);
-        element.clear();
-        return element.sendKeys(values);
+    /**
+     * Method to set WebElement value.
+     * @param element WebElement.
+     * @param inputValue String value.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
+    static setElementValues(element, inputValue) {
+        return this.waitForElement(element)
+            .then(() => element.clear())
+            .then(() => element.sendKeys(inputValue));
+    }
+
+    /**
+     * Method to go to page.
+     * @param page String page to go.
+     * @returns {promise.Promise<any>} Promise.
+     */
+    static goToPage(page) {
+        return browser.waitForAngularEnabled(false)
+            .then(() => browser.get(page));
     }
 
     static getTextElement(element) {
