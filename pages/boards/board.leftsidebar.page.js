@@ -5,7 +5,7 @@ const commonActions = require('../../util/commons');
 /**
  * Page Object of Account Content.
  */
-class BoardContent extends Content {
+class BoardLeftSideBar extends Content {
 
     /**
      * Constructor initializing all WebElements.
@@ -27,4 +27,4 @@ class BoardContent extends Content {
 
 }
 
-module.exports = new BoardContent();
+module.exports = new BoardLeftSideBar();

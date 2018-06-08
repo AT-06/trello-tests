@@ -20,12 +20,6 @@ describe('Update Board', function () {
         expect(expectedBoardCreated).to.be.true;
     });
 
-    // afterEach(function () {
-    //     toolBar.clickReturnButton();
-    //     content.selectGroup(group.groupToDelete);
-    //     settingMenu.deleteGroupSettingsMenu();
-    // });
-
     it('Update a Board has been created before', async function () {
         await toolBar.goHomePage();
         await toolBar.selectBoardWithToolBar(boardToUpdate);

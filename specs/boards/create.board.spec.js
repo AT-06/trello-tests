@@ -12,12 +12,6 @@ describe('Create Board', function () {
         await loginPage.loginAccount(config.email, config.password);
     });
 
-    // afterEach(async () =>  {
-    //     await toolBar.goHomePage();
-    //     content.selectGroup(group.groupToDelete);
-    //     settingMenu.deleteGroupSettingsMenu();
-    // });
-
     it('Create Board with Plus Button on Right Toolbar', async function () {
         await toolBar.goHomePage();
         await toolBar.addBoardWithRightPlusButton(boardName);

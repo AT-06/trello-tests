@@ -1,7 +1,6 @@
 'use strict';
 const Manager = require('../manager.page');
 const commonActions = require('../../util/commons');
-const format = require('string-format');
 
 /**
  * Page Object of Account Content.
