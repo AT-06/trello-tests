@@ -93,7 +93,7 @@ class Commons {
     }
 
     static browserPause() {
-        browser.pause(2500);
+        return browser.pause(2500);
     }
 
     static elementOnView(elementCSS, elementName) {
