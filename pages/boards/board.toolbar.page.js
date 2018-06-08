@@ -26,7 +26,7 @@ class BoardToolBar extends Toolbar {
 
     /**
      * Method to click on create link at board menu.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnCreateBoardAtBoardMenu() {
         return commonActions.clickElement(this.boardMenu.createBoard);
@@ -34,7 +34,7 @@ class BoardToolBar extends Toolbar {
 
     /**
      * Method to click to create board on plus menu.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnCreateBoardAtPlusMenu() {
         return commonActions.clickElement(this.createBoardOnPlusMenu);
@@ -42,7 +42,7 @@ class BoardToolBar extends Toolbar {
 
     /**
      * Method to click on create board button.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnBoardButton() {
         return commonActions.clickElement(this.boardMenu.boardButtonOnLeftToolBar);
@@ -71,7 +71,7 @@ class BoardToolBar extends Toolbar {
     /**
      * Method add new Board with board button on left Toolbar.
      * @param nameOfBoard name to new board.
-     * @returns {Promise<TResult>} Promise.
+     * @returns {promise.Promise<Promise<TResult>>} Promise.
      */
     addBoardWithLeftBoardButton(nameOfBoard) {
         return this.clickOnBoardButton()
@@ -82,7 +82,7 @@ class BoardToolBar extends Toolbar {
     /**
      * Method to select a board with board button on toolbar.
      * @param nameOfBoard name to new board.
-     * @returns {Promise<TResult>} Promise.
+     * @returns {promise.Promise<any>} Promise.
      */
     selectBoardWithToolBar(nameOfBoard) {
         return this.clickOnBoardButton()

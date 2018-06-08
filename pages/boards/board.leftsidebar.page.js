@@ -24,7 +24,6 @@ class BoardLeftSideBar extends LeftSidebar {
     showBoardsWithLeftSideBarButton() {
         return commonActions.clickElement(this.boardsButtonOnLeftSideBar);
     }
-
 }
 
 module.exports = new BoardLeftSideBar();

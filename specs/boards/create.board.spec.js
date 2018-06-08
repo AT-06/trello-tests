@@ -8,7 +8,7 @@ let expect = require('chai').expect;
 
 describe('[Create Board Feature]', function () {
 
-    this.retries(3);
+    this.retries(3)                                                                                                                                                                                                                                                                                                                                                                                 ;
 
     let boardName = 'Board Test';
 

@@ -32,7 +32,7 @@ class BoardContent extends Content {
 
     /**
      * Method to click on create board button.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnBoardButton() {
         return commonActions.clickElement(this.createBoardButton);
@@ -46,6 +46,16 @@ class BoardContent extends Content {
     addBoardWithContentBoardButton(nameOfBoard) {
         return this.clickOnBoardButton()
             .then(() => boardModal.createBoard(nameOfBoard));
+    }
+
+    /**
+     * Method to select and click to board on content.
+     * @param nameOfBoard name to new board.
+     * @returns {promise.Promise<any>} Promise.
+     */
+    selectBoardOnContent(nameOfBoard) {
+        let locator = format(this.boardOnContent,nameOfBoard);
+        return commonActions.clickOnLastElementOfList(locator);
     }
 }
 

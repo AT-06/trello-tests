@@ -15,17 +15,28 @@ describe('[Delete Board Feature]', function () {
     beforeEach(async () => {
         await loginPage.loginAccount(config.email, config.password);
         await toolBar.addBoardWithRightPlusButton(boardToDelete);
-        let expected = await boards.isNameOnBoardEqualTo(boardToDelete);
-        //  expect(expectedBoardCreated).to.be.true;
+        let expectedBoardCreated = await boards.isNameOnBoardEqualTo(boardToDelete);
+        expect(expectedBoardCreated).to.be.true;
     });
 
-    it('Delete one Board has been created before', async function () {
+    it('Delete Board button on left Toolbar, has been created before', async function () {
         await toolBar.goHomePage();
         await toolBar.selectBoardWithToolBar(boardToDelete);
         await boards.deleteBoard();
         await toolBar.goHomePage();
         await leftSideBar.showBoardsWithLeftSideBarButton();
         let expectedOnContent = await content.isBoardOnContentEqualTo(boardToDelete);
-       // expect(expectedOnContent).to.be.false;
+        expect(expectedOnContent).to.be.false;
+    });
+
+    it('Delete Board with button on Left Sidebar, has been created before', async function () {
+        await toolBar.goHomePage();
+        await leftSideBar.showBoardsWithLeftSideBarButton();
+        await content.selectBoardOnContent(boardToDelete);
+        await boards.deleteBoard();
+        await toolBar.goHomePage();
+        await leftSideBar.showBoardsWithLeftSideBarButton();
+        let expectedOnContent = await content.isBoardOnContentEqualTo(boardToDelete);
+        expect(expectedOnContent).to.be.false;
     });
 });
