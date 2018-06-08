@@ -1,7 +1,6 @@
 const timeToWait = 20000;
 const nameTeam = element(by.css('#org-display-name'));
 const descriptionTeam = element(by.css('#org-desc'));
-const createButton = element(by.css('div#classic input.primary.wide.js-save'));
 const deleteButton = element(by.className('js-confirm full negate'));
 const expectedConditions = protractor.ExpectedConditions;
 class Commom {
@@ -10,12 +9,6 @@ class Commom {
     static clickDeleteButton() {
         this.browserPause();
         this.clickElement(deleteButton);
-    }
-
-    static addQuickTeam(nameTeamInput, descriptionTeamInput) {
-        this.setElementValues(nameTeam, nameTeamInput);
-        return this.setElementValues(descriptionTeam, descriptionTeamInput)
-            .then(this.clickElement(createButton));
     }
 
     /**
@@ -72,13 +65,14 @@ class Commom {
             .then(() => browser.get(page));
     }
 
-    static getTextElement(element) {
-        this.waitForElement(element);
-        return element.getText();
+    static getTextElement(element, text) {
+        return this.waitForElement(element)
+            .then(element.getText())
+            .then((x) => {return text === x;});
     }
 
     static browserPause() {
-        browser.pause(2500);
+        return browser.pause(2500);
     }
 
     static elementOnView(elementCSS, elementName) {
