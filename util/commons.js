@@ -13,12 +13,6 @@ class Commons {
         this.clickElement(deleteButton);
     }
 
-    static addQuickTeam(nameTeamInput, descriptionTeamInput) {
-        this.setElementValues(nameTeam, nameTeamInput);
-        return this.setElementValues(descriptionTeam, descriptionTeamInput)
-            .then(this.clickElement(createButton));
-    }
-
     /**
      * Method to wait a element.
      * @param element WebElement.

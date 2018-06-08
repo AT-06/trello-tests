@@ -1,4 +1,4 @@
-let commom = require('../util/commons');
+let commonActions = require('../util/commons');
 
 class SettingsMenu {
     constructor() {
@@ -10,38 +10,36 @@ class SettingsMenu {
     }
 
     clickSaveButton() {
-        return commom.clickElement(this.saveButton);
+        return commonActions.clickElement(this.saveButton);
     }
 
     setNameGroup(values) {
-        return commom.setElementValues(this.nameGroup, values);
+        return commonActions.setElementValues(this.nameGroup, values);
 
     }
 
     clickEditButton() {
-        return commom.clickElement(this.editButton);
+        return commonActions.clickElement(this.editButton);
     }
 
-    getNameGroup(nameGroup) {
-        // return commom.browserPause()
-        //     .then(commom.getTextElement(this.groupName));
-        return commom.getTextElement(this.groupName, nameGroup);
+    isTeamNameSameToCreated(nameGroup) {
+        return commonActions.isElementContainsText(this.groupName, nameGroup);
     }
 
     clickDeleteOption() {
-        return commom.clickElement(this.deleteOption);
+        return commonActions.clickElement(this.deleteOption);
     }
 
 
     deleteGroupSettingsMenu() {
-        return this.clickDeleteOption().then(commom.clickDeleteButton());
+        return this.clickDeleteOption().then(commonActions.clickDeleteButton());
     }
 
     editGroup(values) {
         this.clickEditButton();
         this.setNameGroup(values);
         this.clickSaveButton();
-        commom.browserPause();
+        commonActions.browserPause();
     }
 }
 

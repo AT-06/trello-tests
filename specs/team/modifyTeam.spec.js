@@ -27,6 +27,6 @@ describe('Edit a Group', function () {
     it('Edit a group', async function () {
         content.selectGroup(group.groupToDelete);
         settingMenu.editGroup(group.newName);
-        expect(await settingMenu.getNameGroup()).to.have.equal(group.newName);
+        expect(await settingMenu.isTeamNameSameToCreated()).to.have.equal(group.newName);
     });
 });

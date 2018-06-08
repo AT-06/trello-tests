@@ -1,38 +1,43 @@
-let common = require('../util/Commom');
+'use strict';
+
+let common = require('../util/commons');
+const format = require('string-format');
+let teamCreationForm = require('../pages/teams/team.creation.form');
 
 class LeftSideBar {
+
+    /**
+     * Constructor.
+     */
     constructor() {
         this.addTeamButton = element(by.xpath('//span[text()= "Create a team"]'));
         this.addTeamButtonMobile = element(by.className('.quiet-button.u-float-left'));
-        this.nameTeam = element(by.css('#org-display-name'));
-        this.descriptionTeam = element(by.css('#org-desc'));
-        this.createButton = element(by.css('div#classic input.primary.wide.js-save'));
+        this.teamList = '//span[text()="{}"]/parent::a/parent::li';
     }
 
+    /**
+     * Method to click on left side bar button "Create a Team".
+     * @returns {promise.Promise<Promise<TResult>>} Promise.
+     */
     clickAddTeamButton() {
         return common.clickElement(this.addTeamButton);
     }
 
-    setTeamName(element, input) {
-        return common.setElementValues(element, input);
-    }
-
-    setTeamDescription(element, input) {
-        return common.setElementValues(element, input);
-    }
-
+    /**
+     *
+     * @param nameTeam is the name of the new team.
+     * @param descriptionTeam is the description of the new team.
+     * @returns {promise.Promise<any>} Promise.
+     */
     addTeam(nameTeam, descriptionTeam) {
         return this.clickAddTeamButton()
-            .then(this.addQuickTeam(nameTeam, descriptionTeam))
-            .then(common.browserPause());
+            .then(teamCreationForm.fillTeamFields(nameTeam, descriptionTeam));
     }
 
-    addQuickTeam(nameTeamInput, descriptionTeamInput) {
-        return this.setTeamName(this.nameTeam, nameTeamInput)
-            .then(this.setTeamDescription(this.descriptionTeam, descriptionTeamInput))
-            .then(common.clickElement(this.createButton));
+    clickLastTeam(teamName) {
+        let foo = format(this.teamList, teamName);
+        return common.clickElement(element(by.xpath(foo)));
     }
-
 }
 
 module.exports = new LeftSideBar();
