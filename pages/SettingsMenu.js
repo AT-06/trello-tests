@@ -1,4 +1,4 @@
-let commom = require('../util/Commom');
+let commom = require('../util/commons');
 
 class SettingsMenu {
     constructor() {

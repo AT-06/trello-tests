@@ -24,7 +24,8 @@
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
     "mocha-allure-reporter": "^1.4.0",
-    "protractor": "^5.3.2"
+    "protractor": "^5.3.2",
+    "string-format": "^2.0.0"
   },
   "dependencies": {
     "chai-as-promised": "^7.1.1",

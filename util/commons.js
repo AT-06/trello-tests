@@ -4,7 +4,8 @@ const descriptionTeam = element(by.css('#org-desc'));
 const createButton = element(by.css('div#classic input.primary.wide.js-save'));
 const deleteButton = element(by.className('js-confirm full negate'));
 const expectedConditions = protractor.ExpectedConditions;
-class Commom {
+
+class Commons {
 
 
     static clickDeleteButton() {
@@ -72,6 +73,20 @@ class Commom {
             .then(() => browser.get(page));
     }
 
+    /**
+     * Method to verify a text inside to WebElement.
+     * @param element WebElement.
+     * @param text String text to compare.
+     * @returns {promise.Promise<any>} Promise.
+     */
+    static isElementContainsText(element, text) {
+         return this.waitForElement(element)
+            .then(() => element.getText())
+            .then((textOnElement) => {
+                return textOnElement === text;
+            });
+    }
+
     static getTextElement(element) {
         this.waitForElement(element);
         return element.getText();
@@ -92,4 +107,4 @@ class Commom {
     }
 }
 
-module.exports = Commom;
+module.exports = Commons;

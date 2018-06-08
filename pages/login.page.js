@@ -1,6 +1,5 @@
 'use strict';
-let commonActions = require('../util/Commom');
-let currentUserLogin = null;
+let commonActions = require('../util/commons');
 
 /**
  * PageObject to login on Trello.
@@ -14,9 +13,6 @@ class LoginPage {
         this.loginEmail = element(by.css('input#user'));
         this.loginPassword = element(by.css('input#password'));
         this.loginSubmit = element(by.css('input#login'));
-        this.usserOptions = element(by.css('.member-initials'));
-        this.logOut = element(by.css('a.js-logout'));
-
     }
 
     /**
@@ -25,7 +21,6 @@ class LoginPage {
      * @returns {promise.Promise<ActionSequence>} Promise.
      */
     setLoginEmail(email) {
-        console.log(1)
         return commonActions.setElementValues(this.loginEmail, email);
     }
 
@@ -33,7 +28,6 @@ class LoginPage {
      * Method to set the password Input Field.
      * @param password Value Provided.
      * @returns {promise.Promise<ActionSequence>} Promise.
-     *
      */
     setLoginPassword(password) {
         return commonActions.setElementValues(this.loginPassword, password);
@@ -50,7 +44,6 @@ class LoginPage {
     /**
      * Method to go login page on Trello.
      * @returns {promise.Promise<any>}Promise.
-     *
      */
     open() {
         return commonActions.goToPage('login');
@@ -61,17 +54,13 @@ class LoginPage {
      * @param email Value Provided.
      * @param password Value Provided.
      * @returns {promise.Promise<Promise<TResult>>} Promise.
-     *
      */
     loginAccount(email, password) {
         return this.open()
             .then(() => this.setLoginEmail(email))
             .then(() => this.setLoginPassword(password))
-            .then(() => this.clickLoginSubmit())
-            .then(()=> browser.sleep(7000));
-
+            .then(() => this.clickLoginSubmit());
     }
-
 }
 
 module.exports = new LoginPage();

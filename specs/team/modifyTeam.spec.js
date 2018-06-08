@@ -1,7 +1,7 @@
-let loginPage = require('../../pages/LoginPage');
-let content = require('../../pages/ContentPage');
+let loginPage = require('../../pages/login.page');
+let content = require('../../pages/content.page');
 let settingMenu = require('../../pages/SettingsMenu');
-let toolBar = require('../../pages/ToolBarPage');
+let toolBar = require('../../pages/toolbar.page');
 let expect = require('chai').expect;
 let config = require('../../config.json');
 

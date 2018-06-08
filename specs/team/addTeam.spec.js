@@ -1,8 +1,8 @@
-let loginPage = require('../../pages/LoginPage');
-let leftSideBar = require('../../pages/LeftSideBar');
-let boardsMenu = require('../../pages/ContentPage');
+let loginPage = require('../../pages/login.page');
+let leftSideBar = require('../../pages/leftsidebar.page');
+let boardsMenu = require('../../pages/content.page');
 let settingMenu = require('../../pages/SettingsMenu');
-let toolBar = require('../../pages/ToolBarPage');
+let toolBar = require('../../pages/toolbar.page');
 let expect = require('chai').expect;
 let config = require('../../config');
 
