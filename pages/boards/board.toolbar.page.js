@@ -1,5 +1,6 @@
 'use strict';
 const Toolbar = require('../toolbar.page');
+const boardModal = require('../boards/board.modal');
 const commonActions = require('../../util/commons');
 const format = require('string-format');
 
@@ -18,22 +19,9 @@ class BoardToolBar extends Toolbar {
             createBoard: element(by.className('quiet-button js-add-board')),
             boardOnList: '//span[@title="{}"]'
         };
-        this.addBoardModal = {
-            name: element(by.className('subtle-input')),
-            createButton: element(by.xpath('//button[@class="primary"]'))
-        };
+
         this.createBoardOnPlusMenu = element(by.className('js-new-board'));
 
-    }
-
-    /**
-     * Method to set name board textField Input Field.
-     * @param nameOfBoard name of new board.
-     * @returns {promise.Promise<ActionSequence>} Promise.
-     */
-    setBoardNameTextField(nameOfBoard) {
-        return commonActions.clickElement(this.addBoardModal.name)
-            .then(() => commonActions.setElementValues(this.addBoardModal.name, nameOfBoard));
     }
 
     /**
@@ -56,25 +44,17 @@ class BoardToolBar extends Toolbar {
      * Method to click on create board button.
      * @returns {Promise.<TResult>} Promise.
      */
-    clickOnCreateBoardButton() {
-        return commonActions.clickElement(this.addBoardModal.createButton);
-    }
-
-    /**
-     * Method to click on create board button.
-     * @returns {Promise.<TResult>} Promise.
-     */
     clickOnBoardButton() {
         return commonActions.clickElement(this.boardMenu.boardButtonOnLeftToolBar);
     }
 
     /**
      * Method to select and click a board from list.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<any>} Promise.
      */
     clickOnBoardAtList(boardName) {
         let selection = format(this.boardMenu.boardOnList, boardName);
-        return commonActions.clickElement(element(by.xpath(selection)));
+        return commonActions.clickOnLastElementOfList(selection);
     }
 
     /**
@@ -85,8 +65,7 @@ class BoardToolBar extends Toolbar {
     addBoardWithRightPlusButton(nameOfBoard) {
         return this.clickOnPlusButton()
             .then(() => this.clickOnCreateBoardAtPlusMenu())
-            .then(() => this.setBoardNameTextField(nameOfBoard))
-            .then(() => this.clickOnCreateBoardButton());
+            .then(() => boardModal.createBoard(nameOfBoard));
     }
 
     /**
@@ -97,8 +76,7 @@ class BoardToolBar extends Toolbar {
     addBoardWithLeftBoardButton(nameOfBoard) {
         return this.clickOnBoardButton()
             .then(() => this.clickOnCreateBoardAtBoardMenu())
-            .then(() => this.setBoardNameTextField(nameOfBoard))
-            .then(() => this.clickOnCreateBoardButton());
+            .then(() => boardModal.createBoard(nameOfBoard));
     }
 
     /**

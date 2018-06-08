@@ -7,18 +7,6 @@ const expectedConditions = protractor.ExpectedConditions;
 
 class Commons {
 
-
-    static clickDeleteButton() {
-        this.browserPause();
-        this.clickElement(deleteButton);
-    }
-
-    static addQuickTeam(nameTeamInput, descriptionTeamInput) {
-        this.setElementValues(nameTeam, nameTeamInput);
-        return this.setElementValues(descriptionTeam, descriptionTeamInput)
-            .then(this.clickElement(createButton));
-    }
-
     /**
      * Method to wait a element.
      * @param element WebElement.
@@ -28,7 +16,7 @@ class Commons {
         let isVisible = expectedConditions.visibilityOf(element);
         let isReady = expectedConditions.presenceOf(element);
         return browser.wait(expectedConditions.and(isVisible, isReady))
-            .then(() => browser.sleep(1500));
+            .then(() => browser.sleep(1000));
     }
 
     /**
@@ -41,14 +29,15 @@ class Commons {
             .then(() => browser.wait(expectedConditions.elementToBeClickable(element)));
     }
 
+    /**
+     * Method to click on element.
+     * @param element WebElement.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
+
     static clickElement(element) {
         return this.waitForElementBeClickable(element)
             .then(() => element.click());
-    }
-
-    static submitElement(element) {
-        this.waitForElement(element);
-        return element.submit();
     }
 
     /**
@@ -74,36 +63,26 @@ class Commons {
     }
 
     /**
+     * Method to click on last element of list.
+     * @param list selector of list.
+     * @returns {promise.Promise<any>} Promise.
+     */
+    static clickOnLastElementOfList(list) {
+        return this.clickElement(element.all(by.xpath(list)).first());
+    }
+
+    /**
      * Method to verify a text inside to WebElement.
      * @param element WebElement.
      * @param text String text to compare.
      * @returns {promise.Promise<any>} Promise.
      */
     static isElementContainsText(element, text) {
-         return this.waitForElement(element)
+        return this.waitForElement(element)
             .then(() => element.getText())
             .then((textOnElement) => {
                 return textOnElement === text;
             });
-    }
-
-    static getTextElement(element) {
-        this.waitForElement(element);
-        return element.getText();
-    }
-
-    static browserPause() {
-        return browser.pause(2500);
-    }
-
-    static elementOnView(elementCSS, elementName) {
-        let elementToReturn = null;
-        this.getElement(elementCSS, timeToWait).elements('span').value.forEach(element => {
-            if (element.getText().includes(elementName)) {
-                elementToReturn = element;
-            }
-        });
-        return elementToReturn.toString();
     }
 }
 

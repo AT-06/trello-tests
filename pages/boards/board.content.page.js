@@ -1,5 +1,6 @@
 'use strict';
 const Content = require('../manager.page');
+const boardModal = require('../boards/board.modal');
 const commonActions = require('../../util/commons');
 const format = require('string-format');
 /**
@@ -14,6 +15,10 @@ class BoardContent extends Content {
         super();
 
         this.boardOnContent = '//span[@class="board-tile-details is-badged"]/child::span[text()="{}"]';
+        this.createBoardButton
+            = element(By.xpath('//h3[text()="Personal Boards"]/parent::div/following-sibling::ul/descendant::span[contains(text(),"Create new board")]'));
+        // We cannot improve this selector because it has other similar when you will have a
+        // team and the flag is h3[text()="Personal Boards"].
     }
 
     /**
@@ -25,6 +30,23 @@ class BoardContent extends Content {
         return commonActions.isElementContainsText(element(By.xpath(locator)), nameToVerify);
     }
 
+    /**
+     * Method to click on create board button.
+     * @returns {Promise.<TResult>} Promise.
+     */
+    clickOnBoardButton() {
+        return commonActions.clickElement(this.createBoardButton);
+    }
+
+    /**
+     * Method add new Board with board button on content.
+     * @param nameOfBoard name to new board.
+     * @returns {Promise<TResult>} Promise.
+     */
+    addBoardWithContentBoardButton(nameOfBoard) {
+        return this.clickOnBoardButton()
+            .then(() => boardModal.createBoard(nameOfBoard));
+    }
 }
 
 module.exports = new BoardContent();

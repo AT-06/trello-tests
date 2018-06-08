@@ -8,7 +8,9 @@ const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 const expect = chai.use(chaiAsPromised).expect;
 
-describe('Update Board', function () {
+describe('[Update Board Feature]', function () {
+
+    this.retries(3);
 
     let boardToUpdate = 'Board To Update';
     let boardUpdated = 'Board Updated';
@@ -18,6 +20,12 @@ describe('Update Board', function () {
         await toolBar.addBoardWithRightPlusButton(boardToUpdate);
         let expectedBoardCreated = await boards.isNameOnBoardEqualTo(boardToUpdate);
         expect(expectedBoardCreated).to.be.true;
+    });
+
+    afterEach(async () => {
+        await toolBar.goHomePage();
+        await toolBar.selectBoardWithToolBar(boardUpdated);
+        await boards.deleteBoard();
     });
 
     it('Update a Board has been created before', async function () {
