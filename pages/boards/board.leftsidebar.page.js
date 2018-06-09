@@ -1,11 +1,11 @@
 'use strict';
-const Content = require('../manager.page');
+const LeftSidebar = require('../leftsidebar.page');
 const commonActions = require('../../util/commons');
 
 /**
  * Page Object of Account Content.
  */
-class BoardLeftSideBar extends Content {
+class BoardLeftSideBar extends LeftSidebar {
 
     /**
      * Constructor initializing all WebElements.
@@ -24,7 +24,6 @@ class BoardLeftSideBar extends Content {
     showBoardsWithLeftSideBarButton() {
         return commonActions.clickElement(this.boardsButtonOnLeftSideBar);
     }
-
 }
 
 module.exports = new BoardLeftSideBar();
