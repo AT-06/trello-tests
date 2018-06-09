@@ -1,22 +1,20 @@
 'use strict';
-const Content = require('../manager.page');
 const boardModal = require('../boards/board.modal');
 const commonActions = require('../../util/commons');
 const format = require('string-format');
 /**
  * Page Object of Account Content.
  */
-class BoardContent extends Content {
+class BoardContent {
 
     /**
      * Constructor initializing all WebElements.
      */
     constructor() {
-        super();
-
         this.boardOnContent = '//span[@class="board-tile-details is-badged"]/child::span[text()="{}"]';
         this.createBoardButton
             = element(By.xpath('//h3[text()="Personal Boards"]/parent::div/following-sibling::ul/descendant::span[contains(text(),"Create new board")]'));
+        this.boardList = element(By.className("boards-page-board-section-list"));
         // We cannot improve this selector because it has other similar when you will have a
         // team and the flag is h3[text()="Personal Boards"].
     }
@@ -25,9 +23,9 @@ class BoardContent extends Content {
      * Method to verify if board exist at board list on content.
      * @returns {promise.Promise<any>} Promise.
      */
-    isBoardOnContentEqualTo(nameToVerify) {
-        let locator = format(this.boardOnContent,nameToVerify);
-        return commonActions.isElementContainsText(element(By.xpath(locator)), nameToVerify);
+    isBoardPresentOnContent(nameToVerify) {
+        let locator = format(this.boardOnContent, nameToVerify);
+        return commonActions.isElementPresentOnList(element(By.xpath(locator)), this.boardList);
     }
 
     /**
@@ -41,7 +39,7 @@ class BoardContent extends Content {
     /**
      * Method add new Board with board button on content.
      * @param nameOfBoard name to new board.
-     * @returns {Promise<TResult>} Promise.
+     * @returns {promise.Promise<Promise<TResult>>} Promise.
      */
     addBoardWithContentBoardButton(nameOfBoard) {
         return this.clickOnBoardButton()
@@ -54,7 +52,7 @@ class BoardContent extends Content {
      * @returns {promise.Promise<any>} Promise.
      */
     selectBoardOnContent(nameOfBoard) {
-        let locator = format(this.boardOnContent,nameOfBoard);
+        let locator = format(this.boardOnContent, nameOfBoard);
         return commonActions.clickOnLastElementOfList(locator);
     }
 }

@@ -35,7 +35,7 @@ class LoginPage {
 
     /**
      * Method to click on login button.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickLoginSubmit() {
         return commonActions.clickElement(this.loginSubmit);

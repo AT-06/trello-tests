@@ -1,6 +1,5 @@
 'use strict';
 const commonActions = require('../../util/commons');
-const format = require('string-format');
 
 /**
  * Page Object of Account Content.
@@ -30,7 +29,7 @@ class BoardModal {
 
     /**
      * Method to click on create board button.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnCreateBoardButton() {
         return commonActions.clickElement(this.modal.createButton);

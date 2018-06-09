@@ -17,13 +17,13 @@ class BoardManager extends Manager {
         this.boardNameTextField = element(by.className('js-board-name js-autofocus'));
         this.boardRenameButton = element(by.className('primary wide js-rename-board'));
         this.closeBoardLink = element(by.className('board-menu-navigation-item-link js-close-board'));
-        this.redDeleteButton = element(by.className('js-confirm full negate'));
         this.deleteConfirmLink = element(by.className('quiet js-delete'));
+        this.managerHeader = element(by.className("board-header u-clearfix js-board-header"));
     }
 
     /**
      * Method to click on board name to edit.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnBoardName() {
         return commonActions.clickElement(this.boardName);
@@ -31,7 +31,7 @@ class BoardManager extends Manager {
 
     /**
      * Method to click on reName button.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnRenameButton() {
         return commonActions.clickElement(this.boardRenameButton);
@@ -48,7 +48,7 @@ class BoardManager extends Manager {
 
     /**
      * Method to click on "Close Board" link to delete a board.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnCloseBoardLink() {
         return commonActions.clickElement(this.closeBoardLink);
@@ -56,7 +56,7 @@ class BoardManager extends Manager {
 
     /**
      * Method to click to confirm delete a board permanently.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     clickOnDeleteConfirmLink() {
         return commonActions.clickElement(this.deleteConfirmLink);
@@ -64,18 +64,18 @@ class BoardManager extends Manager {
 
     /**
      * Method to click on close button to delete a board.
-     * @returns {Promise.<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
-    clickOnCloseBoardButton() {
-        return commonActions.clickElement(this.redDeleteButton);
+    clickOnDeleteRedButton() {
+        return commonActions.clickDeleteButton();
     }
 
     /**
      * Method to get name on board page.
      * @returns {promise.Promise<any>} Promise.
      */
-    isNameOnBoardEqualTo(nameToVerify) {
-        return commonActions.isElementContainsText(this.boardName, nameToVerify);
+    isBoardNamePresentOnManagerPage(nameToVerify) {
+        return commonActions.isElementPresentOnList(this.boardName, this.managerHeader);
     }
 
     /**
@@ -97,11 +97,10 @@ class BoardManager extends Manager {
     deleteBoard() {
         return this.showMoreOptions()
             .then(() => this.clickOnCloseBoardLink())
-            .then(() => this.clickOnCloseBoardButton())
+            .then(() => this.clickOnDeleteRedButton())
             .then(() => this.clickOnDeleteConfirmLink())
-            .then(() => this.clickOnCloseBoardButton());
+            .then(() => this.clickOnDeleteRedButton());
     }
-
 }
 
 module.exports = new BoardManager();

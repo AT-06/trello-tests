@@ -3,40 +3,38 @@ const boards = require('../../pages/boards/board.manager.page');
 const toolBar = require('../../pages/boards/board.toolbar.page');
 const leftSideBar = require('../../pages/boards/board.leftsidebar.page');
 const content = require('../../pages/boards/board.content.page');
-const config = require('../../config.json');
-const expect = require('chai').expect;
 
 describe('[Delete Board Feature]', function () {
 
-    this.retries(3);
+    this.retries(1);
 
     let boardToDelete = 'Board To Delete';
 
     beforeEach(async () => {
-        await loginPage.loginAccount(config.email, config.password);
+        await loginPage.loginAccount(login.email, login.password);
         await toolBar.addBoardWithRightPlusButton(boardToDelete);
-        let expectedBoardCreated = await boards.isNameOnBoardEqualTo(boardToDelete);
+        let expectedBoardCreated = await boards.isBoardNamePresentOnManagerPage(boardToDelete);
         expect(expectedBoardCreated).to.be.true;
+        await toolBar.goHomePage();
+
     });
 
     it('Delete Board button on left Toolbar, has been created before', async function () {
-        await toolBar.goHomePage();
         await toolBar.selectBoardWithToolBar(boardToDelete);
         await boards.deleteBoard();
         await toolBar.goHomePage();
         await leftSideBar.showBoardsWithLeftSideBarButton();
-        let expectedOnContent = await content.isBoardOnContentEqualTo(boardToDelete);
+        let expectedOnContent = await content.isBoardPresentOnContent(boardToDelete);
         expect(expectedOnContent).to.be.false;
     });
 
     it('Delete Board with button on Left Sidebar, has been created before', async function () {
-        await toolBar.goHomePage();
         await leftSideBar.showBoardsWithLeftSideBarButton();
         await content.selectBoardOnContent(boardToDelete);
         await boards.deleteBoard();
         await toolBar.goHomePage();
         await leftSideBar.showBoardsWithLeftSideBarButton();
-        let expectedOnContent = await content.isBoardOnContentEqualTo(boardToDelete);
+        let expectedOnContent = await content.isBoardPresentOnContent(boardToDelete);
         expect(expectedOnContent).to.be.false;
     });
 });
