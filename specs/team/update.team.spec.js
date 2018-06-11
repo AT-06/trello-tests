@@ -34,7 +34,7 @@ describe('Edit a team', function () {
     it('Edit a team', async () => {
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
-        await settingMenu.editGroup(teamModified);
+        await settingMenu.editTeam(teamModified);
         await teamToolBar.clickReturnButton();
         await leftSideBar.clickLastTeam(teamModified.name);
         await rightSideBar.goToTeamSettings();

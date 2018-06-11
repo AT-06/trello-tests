@@ -53,7 +53,7 @@ class TeamCreationPage {
         /*return this.setTeamName(this.teamNameField, teamNameInput)
             .then(this.setTeamDescription(this.teamDescriptionField, teamDescriptionInput))
             .then(() => this.createTeam());*/
-        this.printMap(teamInputs);
+        this.iterateJson(teamInputs);
         return this.createTeam();
     }
 
@@ -61,7 +61,7 @@ class TeamCreationPage {
      * Method to execute each field method to fill it.
      * @param teamInputs the values.
      */
-    printMap(teamInputs) {
+    iterateJson(teamInputs) {
         let jsonToFillFields = {
             'name' : () => this.setTeamName(this.teamNameField, teamInputs.name),
             'description' : () => this.setTeamDescription(this.teamDescriptionField, teamInputs.description)
