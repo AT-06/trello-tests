@@ -36,9 +36,9 @@ exports.config = {
     /**
      * How long to wait for a page to load.
      */
-
     getPageTimeout: 10000,
     mochaOpts: {
+        reporter: "spec",
         ui: 'bdd',
         timeout: 150000
     },
@@ -92,6 +92,7 @@ exports.config = {
         // Commons
         global.expectedConditions = protractor.ExpectedConditions;
         browser.waitForAngularEnabled(false);
+        browser.manage().window().maximize();
 
         // Common Page Objects
         global.loginPage = require('./pages/login.page');

@@ -1,4 +1,6 @@
-const commonActions = require('../util/commons');
+'use strict';
+
+let commonActions = require('../util/commons');
 
 /**
  * PageObject of ToolBar.
@@ -15,19 +17,19 @@ class ToolbarPage {
     }
 
     /**
-     * Method to click on return button.
-     * @returns {promise.Promise<Promise<TResult>>} Promise.
-     */
-    clickReturnButton() {
-        return commonActions.clickElement(this.returnButton);
-    }
-
-    /**
      * Method to click on plus button at toolbar.
      * @returns {promise.Promise<Promise<TResult>>} Promise.
      */
     clickOnPlusButton() {
         return commonActions.clickElement(this.plusButton);
+    }
+
+    /**
+     * Method to click on return button.
+     * @returns {promise.Promise<Promise<TResult>>} Promise.
+     */
+    clickReturnButton() {
+        return commonActions.clickElement(this.returnButton);
     }
 
     /**
