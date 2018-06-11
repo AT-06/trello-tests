@@ -4,7 +4,7 @@ class SettingsMenu {
     constructor() {
         this.deleteOption = element(by.css('#content a.quiet-button'));
         this.groupName = element(by.css('#content h1.u-inline'));
-        this.editButton = element(by.className('button-link tabbed-pane-header-details-edit js-edit-profile'));
+        this.editButton = element(by.xpath('//div[@class="js-current-details"]/child::a'));
         this.nameGroup = element(by.name('displayName'));
         this.saveButton = element(by.className('primary wide js-submit-profile'));
     }
@@ -36,10 +36,9 @@ class SettingsMenu {
     }
 
     editGroup(values) {
-        this.clickEditButton();
-        this.setNameGroup(values);
-        this.clickSaveButton();
-        commonActions.browserPause();
+        return this.clickEditButton()
+            .then(() => this.setNameGroup(values))
+            .then(() => this.clickSaveButton());
     }
 }
 

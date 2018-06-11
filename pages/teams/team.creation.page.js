@@ -1,7 +1,7 @@
 'use strict';
 let common = require('../../util/commons');
 
-class TeamCreationForm {
+class TeamCreationPage {
     constructor() {
         this.teamNameField = element(by.css('#org-display-name'));
         this.teamDescriptionField = element(by.css('#org-desc'));
@@ -27,4 +27,4 @@ class TeamCreationForm {
     }
 }
 
-module.exports = new TeamCreationForm();
+module.exports = new TeamCreationPage();

@@ -4,7 +4,7 @@ let commonActions = require('../../util/commons');
 class TeamContentPage {
     constructor() {
         this.deleteTeamLink = element(by.xpath('//div[@class="window-module u-gutter"]/child::a/child::span'));
-        this.deleteTeamForEverButton = element(by.className('js-confirm.full.negate'));
+        this.deleteTeamForEverButton = element(by.css('div#classic input.js-confirm.full.negate'));
     }
 
     clickDeleteTeamLink() {
@@ -17,7 +17,7 @@ class TeamContentPage {
 
     deleteTeam() {
         return this.clickDeleteTeamLink()
-            .then(this.clickDeleteTeamForEverButton());
+            .then(() => this.clickDeleteTeamForEverButton());
     }
 }
 

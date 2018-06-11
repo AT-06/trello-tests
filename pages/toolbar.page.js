@@ -1,7 +1,7 @@
 'use strict';
 
 let commonActions = require('../util/commons');
-let teamCreationForm = require('../pages/teams/team.creation.form');
+let teamCreationForm = require('./teams/team.creation.page');
 
 
 /**

@@ -12,7 +12,7 @@ exports.config = {
      * Required. Spec patterns are relative to the location of this config.
      */
     specs: [
-        './specs/**/deleteTeam.spec.js'
+        './specs/**/*.spec.js'
     ],
 
     framework: 'mocha',
@@ -39,6 +39,6 @@ exports.config = {
     mochaOpts: {
         reporter: "spec",
         ui: 'bdd',
-        timeout: 300000
+        timeout: 240000
     }
 };

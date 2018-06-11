@@ -1,5 +1,5 @@
 let loginPage = require('../../pages/login.page');
-let leftSideBar = require('../../pages/LeftSideBar.js');
+let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
 let rightSideBar = require('../../pages/rightsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 // let content = require('../../pages/content.page');
@@ -16,6 +16,7 @@ describe('Delete a Group', function () {
     };
 
     beforeEach(async () => {
+        await browser.driver.manage().window().maximize();
         await loginPage.loginAccount(config.email, config.password);
         await leftSideBar.addTeam(team.name, team.description);
         await toolBar.clickReturnButton();
@@ -26,6 +27,6 @@ describe('Delete a Group', function () {
         await rightSideBar.goToTeamSettings();
         await teamContentPage.deleteTeam();
         await toolBar.goHomePage();
-        // expect(content.checkNameTeam(group.groupToDelete)).to.not.have.equal(true);
+        //expect(leftSideBar.isTeamDeleted(team.name)).to.be.true;
     });
 });
