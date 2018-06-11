@@ -2,8 +2,8 @@ const timeToWait = 20000;
 const nameTeam = element(by.css('#org-display-name'));
 const descriptionTeam = element(by.css('#org-desc'));
 const createButton = element(by.css('div#classic input.primary.wide.js-save'));
-const deleteButton = element(by.className('js-confirm full negate'));
-const expectedConditions = protractor.ExpectedConditions;
+const redDeleteButton = element(by.className('js-confirm full negate'));
+
 
 class Commons {
 
@@ -62,8 +62,7 @@ class Commons {
      * @returns {promise.Promise<any>} Promise.
      */
     static goToPage(page) {
-        return browser.waitForAngularEnabled(false)
-            .then(() => browser.get(page));
+        return browser.get(page);
     }
 
     /**
@@ -77,16 +76,22 @@ class Commons {
 
     /**
      * Method to verify a text inside to WebElement.
-     * @param element WebElement.
-     * @param text String text to compare.
+     * @param elementToVerify WebElement to verify.
+     * @param list String text to compare.
      * @returns {promise.Promise<any>} Promise.
      */
-    static isElementContainsText(element, text) {
-        return this.waitForElement(element)
-            .then(() => element.getText())
-            .then((textOnElement) => {
-                return textOnElement === text;
-            });
+    static isElementPresentOnList(elementToVerify, list) {
+        return this.waitForElement(list)
+            .then(() => elementToVerify.isPresent());
+    }
+
+    /**
+     * Method to click on red delete button.
+     * @returns {promise.Promise<any>} Promise.
+     */
+    static clickDeleteButton() {
+        return this.waitForElement(redDeleteButton)
+            .then(() => this.clickElement(redDeleteButton));
     }
 }
 

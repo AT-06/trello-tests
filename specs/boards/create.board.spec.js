@@ -3,17 +3,17 @@ const boards = require('../../pages/boards/board.manager.page');
 const toolBar = require('../../pages/boards/board.toolbar.page');
 const leftSideBar = require('../../pages/boards/board.leftsidebar.page');
 const content = require('../../pages/boards/board.content.page');
-const config = require('../../config.json');
-let expect = require('chai').expect;
+
 
 describe('[Create Board Feature]', function () {
 
-    this.retries(3)                                                                                                                                                                                                                                                                                                                                                                                 ;
+    this.retries(1)                                                                                                                                                                                                                                                                                                                                                                                 ;
 
     let boardName = 'Board Test';
 
     beforeEach(async () => {
-        await loginPage.loginAccount(config.email, config.password);
+        await loginPage.loginAccount(login.email, login.password);
+        await toolBar.goHomePage();
     });
 
     afterEach(async () => {
@@ -23,24 +23,21 @@ describe('[Create Board Feature]', function () {
     });
 
     it('Create Board with Plus Button on Right Toolbar', async function () {
-        await toolBar.goHomePage();
         await toolBar.addBoardWithRightPlusButton(boardName);
-        let expectedWithPlusButton = await boards.isNameOnBoardEqualTo(boardName);
+        let expectedWithPlusButton = await boards.isBoardNamePresentOnManagerPage(boardName);
         expect(expectedWithPlusButton).to.be.true;
     });
 
     it('Create Board with Board Button on Left Toolbar', async function () {
-        await toolBar.goHomePage();
         await toolBar.addBoardWithLeftBoardButton(boardName);
-        let expectedWithBoardButton = await boards.isNameOnBoardEqualTo(boardName);
+        let expectedWithBoardButton = await boards.isBoardNamePresentOnManagerPage(boardName);
         expect(expectedWithBoardButton).to.be.true;
     });
 
     it('Create Board with Board Button on Left SideBar', async function () {
-        await toolBar.goHomePage();
         await leftSideBar.showBoardsWithLeftSideBarButton();
         await content.addBoardWithContentBoardButton(boardName);
-        let expectedWithBoardButton = await boards.isNameOnBoardEqualTo(boardName);
+        let expectedWithBoardButton = await boards.isBoardNamePresentOnManagerPage(boardName);
         expect(expectedWithBoardButton).to.be.true;
     });
 });
