@@ -1,18 +1,15 @@
 'use strict';
-const LeftSidebar = require('../leftsidebar.page');
 const commonActions = require('../../util/commons');
 
 /**
  * Page Object of Account Content.
  */
-class BoardLeftSideBar extends LeftSidebar {
+class BoardLeftSideBar {
 
     /**
      * Constructor initializing all WebElements.
      */
     constructor() {
-        super();
-
         this.boardsButtonOnLeftSideBar = element(by.xpath('//span[text()="Boards"]/parent::a/parent::li'));
     }
 
