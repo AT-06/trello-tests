@@ -98,5 +98,4 @@ exports.config = {
 
 
     },
->>>>>>> develop
 };
