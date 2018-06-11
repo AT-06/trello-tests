@@ -31,9 +31,9 @@ class TeamLeftSideBar {
      * @param descriptionTeam is the description of the new team.
      * @returns {promise.Promise<any>} Promise.
      */
-    addTeam(nameTeam, descriptionTeam) {
+    addTeam(teamInputs) {
         return this.clickAddTeamButton()
-            .then(teamCreation.fillTeamFields(nameTeam, descriptionTeam));
+            .then(teamCreation.fillTeamFields(teamInputs));
     }
 
     clickLastTeam(teamName) {

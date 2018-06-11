@@ -92,6 +92,7 @@ exports.config = {
         // Commons
         global.expectedConditions = protractor.ExpectedConditions;
         browser.waitForAngularEnabled(false);
+        browser.manage().window().maximize();
 
         // Common Page Objects
         global.loginPage = require('./pages/login.page');

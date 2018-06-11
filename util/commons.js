@@ -93,6 +93,22 @@ class Commons {
         return this.waitForElement(redDeleteButton)
             .then(() => this.clickElement(redDeleteButton));
     }
+
+    /**
+     * Method to verify is an element contains a text.
+     * @param element that is going to be verified.
+     * @param text to compare the element.
+     * @returns {promise.Promise<boolean>} Promise.
+     */
+    static isElementContainsText(element, text) {
+        return this.waitForElement(element)
+            .then(() => element.getText())
+            .then((textOnElement) => {
+                return textOnElement === text;
+            });
+    }
+
+
 }
 
 module.exports = Commons;

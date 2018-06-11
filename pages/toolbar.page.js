@@ -1,8 +1,6 @@
 'use strict';
 
 let commonActions = require('../util/commons');
-let teamCreationForm = require('./teams/team.creation.page');
-
 
 /**
  * PageObject of ToolBar.
@@ -14,8 +12,6 @@ class ToolbarPage {
      */
     constructor() {
         this.plusButton = element(by.css('div#header span.icon-add.light'));
-        this.teamCreation = element(by.className('js-new-org'));
-
         this.returnButton = element(by.className('js-back-menu'));
         this.headerLogoToGoHome = element(by.className('header-logo-default'));
     }
@@ -27,21 +23,6 @@ class ToolbarPage {
     clickOnPlusButton() {
         return commonActions.clickElement(this.plusButton);
     }
-
-    /**
-     * Method to click on create team but quick form.
-     * @returns {promise.Promise<Promise<TResult>>} Promise.
-     */
-    clickOnTeamCreation() {
-        return commonActions.clickElement(this.teamCreation);
-    }
-
-    addTeam(nameTeam, descriptionTeam) {
-        return this.clickOnPlusButton()
-            .then(this.clickOnTeamCreation())
-            .then(teamCreationForm.fillTeamFields(nameTeam, descriptionTeam));
-    }
-
 
     /**
      * Method to click on return button.
@@ -62,4 +43,4 @@ class ToolbarPage {
 
 }
 
-module.exports = new ToolbarPage;
+module.exports = ToolbarPage;

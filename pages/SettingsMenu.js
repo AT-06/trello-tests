@@ -6,6 +6,7 @@ class SettingsMenu {
         this.groupName = element(by.css('#content h1.u-inline'));
         this.editButton = element(by.xpath('//div[@class="js-current-details"]/child::a'));
         this.nameGroup = element(by.name('displayName'));
+        this.descriptionTeam = element(by.css('textarea[name="desc"]'));
         this.saveButton = element(by.className('primary wide js-submit-profile'));
     }
 
@@ -15,7 +16,10 @@ class SettingsMenu {
 
     setNameGroup(values) {
         return commonActions.setElementValues(this.nameGroup, values);
+    }
 
+    setTeamDescription(values) {
+        return commonActions.setElementValues(this.descriptionTeam, values);
     }
 
     clickEditButton() {
@@ -35,10 +39,27 @@ class SettingsMenu {
         return this.clickDeleteOption().then(commonActions.clickDeleteButton());
     }
 
-    editGroup(values) {
+    fillTeamFields(teamInputs) {
+        /*return this.setTeamName(this.teamNameField, teamNameInput)
+            .then(this.setTeamDescription(this.teamDescriptionField, teamDescriptionInput))
+            .then(() => this.createTeam());*/
+        this.printMap(teamInputs);
+        return this.clickSaveButton();
+    }
+
+    printMap(teamInputs) {
+        let jsonToFillFields = {
+            'name' : () => this.setNameGroup(teamInputs.name),
+            'description' : () => this.setTeamDescription(teamInputs.description)
+        };
+        Object.keys(teamInputs).forEach(key => {
+            jsonToFillFields[key].call();
+        });
+    }
+
+    editGroup(teamInputs) {
         return this.clickEditButton()
-            .then(() => this.setNameGroup(values))
-            .then(() => this.clickSaveButton());
+            .then(() => this.fillTeamFields(teamInputs));
     }
 }
 
