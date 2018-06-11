@@ -5,7 +5,7 @@ let teamToolBar = require('../../pages/teams/team.toolbar.page');
 let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 
-describe('Edit a team', function () {
+describe('[Edit a team feature]', function () {
     this.retries(1);
 
     let team = {
@@ -31,7 +31,7 @@ describe('Edit a team', function () {
         await teamContentPage.deleteTeam();
     });
 
-    it('Edit a team', async () => {
+    it('Edit a team name and description', async () => {
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
         await settingMenu.editTeam(teamModified);

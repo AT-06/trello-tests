@@ -5,7 +5,7 @@ let teamToolBar = require('../../pages/teams/team.toolbar.page');
 let rightSideBar = require('../../pages/rightsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 
-describe('Add a new Team', function () {
+describe('[Create a Team feature]', function () {
     this.retries(1);
 
     let team = {
@@ -24,13 +24,13 @@ describe('Add a new Team', function () {
         await teamContentPage.deleteTeam();
     });
 
-    it('Create team from left side bar', async () => {
+    it('Create team with left side bar', async () => {
         await leftSideBar.addTeam(team);
         let isExpectedTeamCreated = await settingMenu.isTeamNameSameToCreated(team.name);
         expect(isExpectedTeamCreated).to.be.true;
     });
 
-    it('Create a quick Team', async () => {
+    it('Create team with plus toolbar button', async () => {
         await teamToolBar.addTeam(team);
         let isExpectedTeamCreated = await settingMenu.isTeamNameSameToCreated(team.name);
         expect(isExpectedTeamCreated).to.be.true;
