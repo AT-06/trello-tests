@@ -23,7 +23,7 @@ exports.config = {
      * testing on multiple browsers, use the multiCapabilities array.
      */
     capabilities: {
-        browserName: 'chrome'
+        browserName: 'firefox'
     },
 
     /**

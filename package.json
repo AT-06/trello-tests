@@ -5,7 +5,8 @@
   "main": "protractor.conf.js",
   "scripts": {
     "test": "protractor protractor.conf.js",
-    "dockerChrome": "protractor protractor.dockerChrome.conf.js",
+    "dockerChrome": "protractor protractor.conf.js",
+    "dockerFirefox": "protractor protractor.dockerFirefox.conf.js",
     "sauce": "protractor protractor.sauce.conf.js"
   },
   "repository": {
