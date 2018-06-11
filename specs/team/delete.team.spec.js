@@ -5,6 +5,7 @@ let teamContentPage = require('../../pages/teams/team.content.page');
 let teamToolBar = require('../../pages/teams/team.toolbar.page');
 
 describe('Delete a Group', function () {
+    this.retries(1);
 
     let team = {
         name: 'team to test delete',

@@ -4,6 +4,9 @@ let commonActions = require('../../util/commons');
 const format = require('string-format');
 let teamCreation = require('../teams/team.creation.page');
 
+/**
+ * Page object of left side bar for teams.
+ */
 class TeamLeftSideBar {
 
     /**
@@ -36,6 +39,11 @@ class TeamLeftSideBar {
             .then(teamCreation.fillTeamFields(teamInputs));
     }
 
+    /**
+     * Click created team.
+     * @param teamName the team name.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
     clickLastTeam(teamName) {
         let foo = format(this.teamList, teamName);
         return commonActions.clickElement(element(by.xpath(foo)));

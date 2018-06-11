@@ -1,11 +1,12 @@
 const loginPage = require('../../pages/login.page');
 let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
-let settingMenu = require('../../pages/SettingsMenu');
+let settingMenu = require('../../pages/settings.page');
 let teamToolBar = require('../../pages/teams/team.toolbar.page');
 let rightSideBar = require('../../pages/rightsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 
 describe('Add a new Team', function () {
+    this.retries(1);
 
     let team = {
         name: 'Team Creation Test',

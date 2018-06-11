@@ -1,6 +1,6 @@
 let commonActions = require('../util/commons');
 
-class SettingsMenu {
+class SettingsPage {
     constructor() {
         this.deleteOption = element(by.css('#content a.quiet-button'));
         this.groupName = element(by.css('#content h1.u-inline'));
@@ -63,4 +63,4 @@ class SettingsMenu {
     }
 }
 
-module.exports = new SettingsMenu();
+module.exports = new SettingsPage();

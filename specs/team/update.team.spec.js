@@ -1,11 +1,13 @@
 let loginPage = require('../../pages/login.page');
-let settingMenu = require('../../pages/SettingsMenu');
+let settingMenu = require('../../pages/settings.page');
 let rightSideBar = require('../../pages/rightsidebar.page');
 let teamToolBar = require('../../pages/teams/team.toolbar.page');
 let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 
 describe('Edit a team', function () {
+    this.retries(1);
+
     let team = {
         name: 'Team to Modify',
         description: 'description about team'
