@@ -18,7 +18,8 @@ describe('[Create a Team feature]', function () {
     });
 
     afterEach(async () => {
-        await teamToolBar.clickReturnButton();
+        await teamToolBar.goHomePage();
+        await leftSideBar.clickHomeButton();
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
         await teamContentPage.deleteTeam();

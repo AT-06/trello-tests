@@ -14,10 +14,17 @@ class TeamLeftSideBar {
      */
     constructor() {
         this.addTeamButton = element(by.xpath('//span[text()= "Create a team"]'));
-        this.addTeamButtonMobile = element(by.className('.quiet-button.u-float-left'));
         this.teamList = '//span[text()="{}"]/parent::a/parent::li';
-        this.teamList22 = '//div[text()="teams"]/parent::div/following::ul';
         this.leftSpan = '//div[text()="teams"]/following::ul/descendant::span';
+        this.homeButton = element(by.xpath('//span[text()="Home"]'));
+    }
+
+    /**
+     * Method to click on home page from  left side bar.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
+    clickHomeButton() {
+        return commonActions.clickElement(this.homeButton);
     }
 
     /**
