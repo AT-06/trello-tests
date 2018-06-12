@@ -7,7 +7,7 @@
     "test": "protractor protractor.conf.js",
     "dockerChrome": "protractor protractor.conf.js",
     "dockerFirefox": "protractor protractor.dockerFirefox.conf.js",
-    "sauce": "protractor protractor.sauce.conf.js"
+    "sauce": "protractor protractor.saucelabs.conf.js"
   },
   "repository": {
     "type": "git",

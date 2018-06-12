@@ -1,7 +1,4 @@
 const timeToWait = 20000;
-const nameTeam = element(by.css('#org-display-name'));
-const descriptionTeam = element(by.css('#org-desc'));
-const createButton = element(by.css('div#classic input.primary.wide.js-save'));
 const redDeleteButton = element(by.className('js-confirm full negate'));
 
 
@@ -15,8 +12,8 @@ class Commons {
     static waitForElement(element) {
         let isVisible = expectedConditions.visibilityOf(element);
         let isReady = expectedConditions.presenceOf(element);
-        return browser.wait(expectedConditions.and(isVisible, isReady))
-            .then(() => browser.sleep(1000));
+        return browser.wait(expectedConditions.and(isVisible, isReady), timeToWait)
+            .then(() => this.pauseInSeconds(1.5));
     }
 
     /**
@@ -77,7 +74,7 @@ class Commons {
      * @returns {promise.Promise<any>} Promise.
      */
     static isElementPresentOnList(elementToVerify, list) {
-        return this.waitForElement(list)
+       return this.waitForElement(list)
             .then(() => elementToVerify.isPresent());
     }
 
@@ -104,7 +101,9 @@ class Commons {
             });
     }
 
-
+    static pauseInSeconds(time) {
+        return browser.sleep(time * 1000);
+    }
 }
 
 module.exports = Commons;

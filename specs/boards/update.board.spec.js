@@ -20,7 +20,8 @@ describe('[Update Board Feature]', function () {
 
     afterEach(async () => {
         await toolBar.goHomePage();
-        await toolBar.selectBoardWithToolBar(boardUpdated);
+        await leftSideBar.showBoardsWithLeftSideBarButton();
+        await content.selectBoardOnContent(boardUpdated);
         await boards.deleteBoard();
     });
 

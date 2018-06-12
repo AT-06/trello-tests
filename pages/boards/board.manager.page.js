@@ -1,7 +1,7 @@
 'use strict';
 const Manager = require('../manager.page');
 const commonActions = require('../../util/commons');
-
+const format = require('string-format');
 /**
  * Page Object of Account Content.
  */
@@ -19,6 +19,8 @@ class BoardManager extends Manager {
         this.closeBoardLink = element(by.className('board-menu-navigation-item-link js-close-board'));
         this.deleteConfirmLink = element(by.className('quiet js-delete'));
         this.managerHeader = element(by.className("board-header u-clearfix js-board-header"));
+
+
     }
 
     /**
@@ -75,13 +77,13 @@ class BoardManager extends Manager {
      * @returns {promise.Promise<any>} Promise.
      */
     isBoardNamePresentOnManagerPage(nameToVerify) {
-        return commonActions.isElementPresentOnList(this.boardName, this.managerHeader);
+        return commonActions.isElementContainsText(this.boardName,nameToVerify);
     }
 
     /**
      * Method to update board name on board page.
      * @param nameOfBoard name to new board.
-     * @returns {Promise<TResult>} Promise.
+     * @returns {promise.Promise<ActionSequence>} Promise.
      */
     updateBoardName(nameOfBoard) {
         return this.clickOnBoardName()

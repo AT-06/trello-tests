@@ -11,7 +11,7 @@ class BoardContent {
      * Constructor initializing all WebElements.
      */
     constructor() {
-        this.boardOnContent = '//span[@class="board-tile-details is-badged"]/child::span[text()="{}"]';
+        this.boardOnContent = '//span[@class="board-tile-details is-badged"]/child::span[@title="{}"]';
         this.createBoardButton
             = element(By.xpath('//h3[text()="Personal Boards"]/parent::div/following-sibling::ul/descendant::span[contains(text(),"Create new board")]'));
         this.boardList = element(By.className("boards-page-board-section-list"));
@@ -52,8 +52,7 @@ class BoardContent {
      * @returns {promise.Promise<any>} Promise.
      */
     selectBoardOnContent(nameOfBoard) {
-        let locator = format(this.boardOnContent, nameOfBoard);
-        return commonActions.clickOnLastElementOfList(locator);
+        return commonActions.clickOnLastElementOfList(format(this.boardOnContent, nameOfBoard));
     }
 }
 
