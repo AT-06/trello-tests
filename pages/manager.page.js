@@ -11,6 +11,7 @@ class ManagerPage {
     constructor() {
         this.showMenuLink = element(by.xpath('//span[text()="Show Menu"]'));
         this.moreLink = element(by.className('board-menu-navigation-item-link js-open-more'));
+        this.closeButtonMenu = element(by.xpath('//a[@title="Close the board menu."]'));
     }
 
     /**
@@ -22,13 +23,31 @@ class ManagerPage {
     }
 
     /**
+     * Method to click on "Show Menu" link.
+     * @returns {promise.Promise<Promise<TResult>>} Promise.
+     */
+    showMoreOption() {
+        return commonActions.clickElement(this.moreLink);
+    }
+
+    /**
+     * Method to click on "Show Menu" link.
+     * @returns {promise.Promise<Promise<TResult>>} Promise.
+     */
+    closingMenuBeforeStart() {
+        this.closeButtonMenu.click();
+    }
+
+    /**
      * Method to click on "More" link.
      * @returns {promise.Promise<Promise<TResult>>} Promise.
      */
     showMoreOptions() {
-        return commonActions.clickElement(this.moreLink);
-    }
 
+        this.closingMenuBeforeStart();
+        return this.showMainMenu()
+            .then(() => this.showMoreOption());
+    }
 }
 
 module.exports = ManagerPage;

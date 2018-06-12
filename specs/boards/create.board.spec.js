@@ -18,7 +18,8 @@ describe('[Create Board Feature]', function () {
 
     afterEach(async () => {
         await toolBar.goHomePage();
-        await toolBar.selectBoardWithToolBar(boardName);
+        await leftSideBar.showBoardsWithLeftSideBarButton();
+        await content.selectBoardOnContent(boardName);
         await boards.deleteBoard();
     });
 

@@ -17,11 +17,10 @@ class BoardToolBar extends Toolbar {
         this.boardMenu = {
             boardButtonOnLeftToolBar: element(by.xpath('//div[@class="header-boards-button"]/child::a')),
             createBoard: element(by.className('quiet-button js-add-board')),
-            boardOnList: '//span[@title="{}"]'
+            boardOnList: '//span[@title="{}"]/parent::span[contains(@class,"compact-board")]'
         };
 
         this.createBoardOnPlusMenu = element(by.className('js-new-board'));
-
     }
 
     /**
@@ -88,7 +87,6 @@ class BoardToolBar extends Toolbar {
         return this.clickOnBoardButton()
             .then(() => this.clickOnBoardAtList(nameOfBoard));
     }
-
 }
 
 module.exports = new BoardToolBar();
