@@ -15,7 +15,8 @@ describe('[Delete a Team feature]', function () {
     beforeEach(async () => {
         await loginPage.loginAccount(login.email, login.password);
         await leftSideBar.addTeam(team);
-        await teamToolBar.clickReturnButton();
+        await teamToolBar.goHomePage();
+        await leftSideBar.clickHomeButton();
     });
 
     it('Delete a team', async () => {
@@ -23,6 +24,7 @@ describe('[Delete a Team feature]', function () {
         await rightSideBar.goToTeamSettings();
         await teamContentPage.deleteTeam();
         await teamToolBar.goHomePage();
+        await leftSideBar.clickHomeButton();
         //expect(leftSideBar.isTeamDeleted(team.name)).to.be.true;
     });
 });

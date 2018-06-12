@@ -7,10 +7,12 @@
     "test": "protractor protractor.conf.js",
     "dockerChrome": "protractor protractor.conf.js",
     "dockerFirefox": "protractor protractor.dockerFirefox.conf.js",
+
     "saucelabs": "protractor protractor.saucelabs.conf.js",
     "teams": "protractor protractor.conf.js --tags Teams",
     "boards": "protractor protractor.conf.js --tags Boards",
     "accpetance": "protractor protractor.conf.js --tags Acceptance"
+    "browserstack": "protractor protractor.browserstack.conf.js"
   },
   "repository": {
     "type": "git",

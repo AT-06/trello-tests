@@ -3,5 +3,7 @@
   "password": "",
   "docker": "http://localhost:4444/wd/hub",
   "sauceUser": "",
-  "sauceKey": ""
+  "sauceKey": "",
+  "browserStackUser": "",
+  "browserStackKey": ""
 }
