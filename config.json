@@ -1,5 +1,7 @@
 {
   "email": "",
   "password": "",
-  "docker": "http://localhost:4444/wd/hub"
+  "docker": "http://localhost:4444/wd/hub",
+  "sauceUser": "",
+  "sauceKey": ""
 }

@@ -9,8 +9,8 @@ exports.config = {
     //sauceProxy:"",
     sauceSeleniumAddress: "ondemand.saucelabs.com:80/wd/hub",
     sauceSeleniumUseHttp: true,
-    sauceUser: "omar.limbert",
-    sauceKey: "c294a1dd-ed5e-41e5-a13b-2a2a1ce2885d",
+    sauceUser: config.sauceUser,
+    sauceKey: config.sauceKey,
 
 
     baseUrl: 'https://trello.com',
@@ -30,8 +30,8 @@ exports.config = {
      */
     capabilities: {
         browserName: "chrome",
-        platform:"Windows 10",
-        version:"66.0"
+        platform: "Windows 10",
+        version: "66.0"
     },
 
     /**
@@ -56,7 +56,7 @@ exports.config = {
      *
      * default: INFO
      */
-    logLevel: 'ERROR'|'DEBUG',
+    logLevel: 'ERROR' | 'DEBUG',
 
     /**
      * A callback function called once protractor is ready and available, and
