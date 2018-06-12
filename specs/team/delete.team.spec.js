@@ -4,7 +4,7 @@ let rightSideBar = require('../../pages/rightsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 let teamToolBar = require('../../pages/teams/team.toolbar.page');
 
-describe('Delete a Group', function () {
+describe('[Delete a Team feature]', function () {
     this.retries(1);
 
     let team = {
@@ -18,7 +18,7 @@ describe('Delete a Group', function () {
         await teamToolBar.clickReturnButton();
     });
 
-    it('Delete a group', async () => {
+    it('Delete a team', async () => {
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
         await teamContentPage.deleteTeam();

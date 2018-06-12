@@ -6,11 +6,7 @@ const redDeleteButton = element(by.className('js-confirm full negate'));
 
 
 class Commons {
-
-    static clickDeleteButton() {
-        this.browserPause();
-        this.clickElement(deleteButton);
-    }
+    
     /**
      * Method to wait a element.
      * @param element WebElement.
