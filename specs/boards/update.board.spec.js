@@ -3,7 +3,7 @@ const toolBar = require('../../pages/boards/board.toolbar.page');
 const leftSideBar = require('../../pages/boards/board.leftsidebar.page');
 const content = require('../../pages/boards/board.content.page');
 
-describe('[Update Board Feature]', function () {
+describe('[Update Board Feature] #Boards', function () {
 
     this.retries(1);
 
@@ -25,7 +25,7 @@ describe('[Update Board Feature]', function () {
         await boards.deleteBoard();
     });
 
-    it('Update a Board with button on left Toolbar, has been created before', async function () {
+    it('Update a Board with button on left Toolbar, has been created before #Acceptance', async function () {
         await toolBar.selectBoardWithToolBar(boardToUpdate);
         await boards.updateBoardName(boardUpdated);
         let expectedOnBoards = await boards.isBoardNamePresentOnManagerPage(boardUpdated);
@@ -37,7 +37,7 @@ describe('[Update Board Feature]', function () {
         expect(expectedOnContent).to.be.true;
     });
 
-    it('Update a Board with button on Left Sidebar, has been created before', async function () {
+    it('Update a Board with button on Left Sidebar, has been created before #Acceptance', async function () {
         await leftSideBar.showBoardsWithLeftSideBarButton();
         await content.selectBoardOnContent(boardToUpdate);
         await boards.updateBoardName(boardUpdated);

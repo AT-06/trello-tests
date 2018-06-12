@@ -4,7 +4,7 @@ const toolBar = require('../../pages/boards/board.toolbar.page');
 const leftSideBar = require('../../pages/boards/board.leftsidebar.page');
 const content = require('../../pages/boards/board.content.page');
 
-describe('[Delete Board Feature]', function () {
+describe('[Delete Board Feature] #Boards', function () {
 
     this.retries(1);
 
@@ -19,7 +19,7 @@ describe('[Delete Board Feature]', function () {
 
     });
 
-    it('Delete Board button on left Toolbar, has been created before', async function () {
+    it('Delete Board button on left Toolbar, has been created before #Acceptance', async function () {
         await toolBar.selectBoardWithToolBar(boardToDelete);
         await boards.deleteBoard();
         await toolBar.goHomePage();
@@ -28,7 +28,7 @@ describe('[Delete Board Feature]', function () {
         expect(expectedOnContent).to.be.false;
     });
 
-    it('Delete Board with button on Left Sidebar, has been created before', async function () {
+    it('Delete Board with button on Left Sidebar, has been created before #Acceptance', async function () {
         await leftSideBar.showBoardsWithLeftSideBarButton();
         await content.selectBoardOnContent(boardToDelete);
         await boards.deleteBoard();
