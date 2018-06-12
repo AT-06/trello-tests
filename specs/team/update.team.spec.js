@@ -21,11 +21,13 @@ describe('[Edit a team feature]', function () {
     beforeEach(async () => {
         await loginPage.loginAccount(login.email, login.password);
         await leftSideBar.addTeam(team);
-        await teamToolBar.clickReturnButton();
+        await teamToolBar.goHomePage();
+        await leftSideBar.clickHomeButton();
     });
 
     afterEach(async () => {
-        await teamToolBar.clickReturnButton();
+        await teamToolBar.goHomePage();
+        await leftSideBar.clickHomeButton();
         await leftSideBar.clickLastTeam(teamModified.name);
         await rightSideBar.goToTeamSettings();
         await teamContentPage.deleteTeam();
@@ -35,7 +37,8 @@ describe('[Edit a team feature]', function () {
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
         await settingMenu.editTeam(teamModified);
-        await teamToolBar.clickReturnButton();
+        await teamToolBar.goHomePage();
+        await leftSideBar.clickHomeButton();
         await leftSideBar.clickLastTeam(teamModified.name);
         await rightSideBar.goToTeamSettings();
         let isExpectedTeamModified = await settingMenu.isTeamNameSameToCreated(teamModified.name);
