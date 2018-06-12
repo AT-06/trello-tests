@@ -1,4 +1,5 @@
 const config = require('./config.json');
+let tags = require('./util/protractor.mocha.tags')();
 exports.config = {
 
     /**
@@ -38,6 +39,7 @@ exports.config = {
      */
     getPageTimeout: 10000,
     mochaOpts: {
+        grep : tags,
         reporter: "spec",
         ui: 'bdd',
         timeout: 240000
@@ -48,7 +50,7 @@ exports.config = {
      *
      * default: INFO
      */
-    logLevel: 'ERROR'|'DEBUG',
+    logLevel: 'ERROR' | 'DEBUG',
 
     /**
      * A callback function called once protractor is ready and available, and

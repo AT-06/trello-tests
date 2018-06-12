@@ -5,9 +5,9 @@ const leftSideBar = require('../../pages/boards/board.leftsidebar.page');
 const content = require('../../pages/boards/board.content.page');
 
 
-describe('[Create Board Feature]', function () {
+describe('[Create Board Feature] #Boards', function () {
 
-    this.retries(1)                                                                                                                                                                                                                                                                                                                                                                                 ;
+    this.retries(1);                                                                                                                                                                                                                                                                                                                                                                           ;
 
     let boardName = 'Board Test';
 
@@ -23,19 +23,19 @@ describe('[Create Board Feature]', function () {
         await boards.deleteBoard();
     });
 
-    it('Create Board with Plus Button on Right Toolbar', async function () {
+    it('Create Board with Plus Button on Right Toolbar #Acceptance', async function () {
         await toolBar.addBoardWithRightPlusButton(boardName);
         let expectedWithPlusButton = await boards.isBoardNamePresentOnManagerPage(boardName);
         expect(expectedWithPlusButton).to.be.true;
     });
 
-    it('Create Board with Board Button on Left Toolbar', async function () {
+    it('Create Board with Board Button on Left Toolbar #Acceptance', async function () {
         await toolBar.addBoardWithLeftBoardButton(boardName);
         let expectedWithBoardButton = await boards.isBoardNamePresentOnManagerPage(boardName);
         expect(expectedWithBoardButton).to.be.true;
     });
 
-    it('Create Board with Board Button on Left SideBar', async function () {
+    it('Create Board with Board Button on Left SideBar #Acceptance', async function () {
         await leftSideBar.showBoardsWithLeftSideBarButton();
         await content.addBoardWithContentBoardButton(boardName);
         let expectedWithBoardButton = await boards.isBoardNamePresentOnManagerPage(boardName);

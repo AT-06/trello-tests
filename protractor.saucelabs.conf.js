@@ -6,7 +6,7 @@ exports.config = {
      * with relative paths will be resolved against this URL (via url.resolve)
      */
 
-    //sauceProxy:"",
+    //sauceProxy:"172.31.90.162:8080",
     sauceSeleniumAddress: "ondemand.saucelabs.com:80/wd/hub",
     sauceSeleniumUseHttp: true,
     sauceUser: config.sauceUser,
@@ -29,6 +29,7 @@ exports.config = {
      * testing on multiple browsers, use the multiCapabilities array.
      */
     capabilities: {
+        grep: "tags",
         browserName: "chrome",
         platform: "Windows 10",
         version: "66.0"
