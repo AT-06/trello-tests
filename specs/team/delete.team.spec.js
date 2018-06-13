@@ -11,14 +11,14 @@ describe('[Delete a Team feature] #Teams', function () {
         description: 'description of team',
     };
 
-    beforeEach(async () => {
+    beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
         await leftSideBar.addTeam(team);
         await teamToolBar.goHomePage();
         await leftSideBar.clickHomeButton();
     });
 
-    it('Delete a team #Acceptance', async () => {
+    it('Delete a team #Acceptance', async function () {
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
         await teamContentPage.deleteTeam();

@@ -10,7 +10,7 @@ describe('[Update Board Feature] #Boards', function () {
     let boardToUpdate = 'Board To Update';
     let boardUpdated = 'Board Updated';
 
-    beforeEach(async () => {
+    beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
         await toolBar.addBoardWithRightPlusButton(boardToUpdate);
         let expectedBoardCreated = await boards.isBoardNamePresentOnManagerPage(boardToUpdate);
@@ -18,7 +18,7 @@ describe('[Update Board Feature] #Boards', function () {
         await toolBar.goHomePage();
     });
 
-    afterEach(async () => {
+    afterEach(async function () {
         await toolBar.goHomePage();
         await leftSideBar.showBoardsWithLeftSideBarButton();
         await content.selectBoardOnContent(boardUpdated);

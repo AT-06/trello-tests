@@ -18,14 +18,14 @@ describe('[Edit a team feature] #Teams', function () {
         description: 'description about team modified'
     };
 
-    beforeEach(async () => {
+    beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
         await leftSideBar.addTeam(team);
         await teamToolBar.goHomePage();
         await leftSideBar.clickHomeButton();
     });
 
-    afterEach(async () => {
+    afterEach(async function () {
         await teamToolBar.goHomePage();
         await leftSideBar.clickHomeButton();
         await leftSideBar.clickLastTeam(teamModified.name);
@@ -33,7 +33,7 @@ describe('[Edit a team feature] #Teams', function () {
         await teamContentPage.deleteTeam();
     });
 
-    it('Edit a team name and description #Acceptance', async () => {
+    it('Edit a team name and description #Acceptance', async function () {
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
         await settingMenu.editTeam(teamModified);

@@ -3,19 +3,20 @@ const boards = require('../../pages/boards/board.manager.page');
 const toolBar = require('../../pages/boards/board.toolbar.page');
 const leftSideBar = require('../../pages/boards/board.leftsidebar.page');
 const content = require('../../pages/boards/board.content.page');
+const async = require('asyncawait/async');
 
 describe('[Create Board Feature] #Boards', function () {
 
-    this.retries(1);                                                                                                                                                                                                                                                                                                                                                                           ;
+    this.retries(1);
 
     let boardName = 'Board Test';
 
-    beforeEach(async () => {
+    beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
         await toolBar.goHomePage();
     });
 
-    afterEach(async () => {
+    afterEach(async function () {
         await toolBar.goHomePage();
         await leftSideBar.showBoardsWithLeftSideBarButton();
         await content.selectBoardOnContent(boardName);

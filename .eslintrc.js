@@ -26,5 +26,8 @@ module.exports = {
     },
     "globals": {
         "allure": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017
     }
 };

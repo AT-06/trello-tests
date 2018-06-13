@@ -13,11 +13,11 @@ describe('[Create a Team feature] #Teams', function () {
         description: 'description about team'
     };
 
-    beforeEach(async () => {
+    beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
     });
 
-    afterEach(async () => {
+    afterEach(async function () {
         await teamToolBar.goHomePage();
         await leftSideBar.clickHomeButton();
         await leftSideBar.clickLastTeam(team.name);
@@ -25,13 +25,13 @@ describe('[Create a Team feature] #Teams', function () {
         await teamContentPage.deleteTeam();
     });
 
-    it('Create team with left side bar #Acceptance', async () => {
+    it('Create team with left side bar #Acceptance', async function () {
         await leftSideBar.addTeam(team);
         let isExpectedTeamCreated = await settingMenu.isTeamNameSameToCreated(team.name);
         expect(isExpectedTeamCreated).to.be.true;
     });
 
-    it('Create team with plus toolbar button #Acceptance', async () => {
+    it('Create team with plus toolbar button #Acceptance', async function () {
         await teamToolBar.addTeam(team);
         let isExpectedTeamCreated = await settingMenu.isTeamNameSameToCreated(team.name);
         expect(isExpectedTeamCreated).to.be.true;
