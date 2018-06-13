@@ -46,7 +46,7 @@ exports.config = {
      */
     getPageTimeout: 10000,
     mochaOpts: {
-        reporter: "spec",
+        reporter: 'spec',
         ui: 'bdd',
         timeout: 240000
     },

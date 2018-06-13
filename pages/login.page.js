@@ -10,9 +10,9 @@ class LoginPage {
      * Constructor of PageObject.
      */
     constructor() {
-        this.loginEmail = element(by.css('input#user'));
-        this.loginPassword = element(by.css('input#password'));
-        this.loginSubmit = element(by.css('input#login'));
+        this.loginEmail = element(By.css('input#user'));
+        this.loginPassword = element(By.css('input#password'));
+        this.loginSubmit = element(By.css('input#login'));
     }
 
     /**

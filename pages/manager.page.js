@@ -9,9 +9,9 @@ class ManagerPage {
      * Constructor of PageObject.
      */
     constructor() {
-        this.showMenuLink = element(by.xpath('//span[text()="Show Menu"]'));
-        this.moreLink = element(by.className('board-menu-navigation-item-link js-open-more'));
-        this.closeButtonMenu = element(by.xpath('//a[@title="Close the board menu."]'));
+        this.showMenuLink = element(By.xpath('//span[text()="Show Menu"]'));
+        this.moreLink = element(By.className('board-menu-navigation-item-link js-open-more'));
+        this.closeButtonMenu = element(By.xpath('//a[@title="Close the board menu."]'));
     }
 
     /**

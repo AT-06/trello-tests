@@ -7,7 +7,7 @@ exports.config = {
      */
 
     //sauceProxy:"172.31.90.162:8080",
-    sauceSeleniumAddress: "ondemand.saucelabs.com:80/wd/hub",
+    sauceSeleniumAddress: 'ondemand.saucelabs.com:80/wd/hub',
     sauceSeleniumUseHttp: true,
     sauceUser: config.sauceUser,
     sauceKey: config.sauceKey,
@@ -29,10 +29,10 @@ exports.config = {
      * testing on multiple browsers, use the multiCapabilities array.
      */
     capabilities: {
-        grep: "tags",
-        browserName: "chrome",
-        platform: "Windows 10",
-        version: "66.0"
+        grep: 'tags',
+        browserName: 'chrome',
+        platform: 'Windows 10',
+        version: '66.0'
     },
 
     /**
@@ -47,7 +47,7 @@ exports.config = {
      */
     getPageTimeout: 10000,
     mochaOpts: {
-        reporter: "spec",
+        reporter: 'spec',
         ui: 'bdd',
         timeout: 150000
     },

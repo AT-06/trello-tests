@@ -10,7 +10,7 @@ class BoardLeftSideBar {
      * Constructor initializing all WebElements.
      */
     constructor() {
-        this.boardsButtonOnLeftSideBar = element(by.xpath('//span[text()="Boards"]/parent::a/parent::li'));
+        this.boardsButtonOnLeftSideBar = element(By.xpath('//span[text()="Boards"]/parent::a/parent::li'));
     }
 
     /**

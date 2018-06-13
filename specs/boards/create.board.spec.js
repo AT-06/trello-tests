@@ -4,7 +4,6 @@ const toolBar = require('../../pages/boards/board.toolbar.page');
 const leftSideBar = require('../../pages/boards/board.leftsidebar.page');
 const content = require('../../pages/boards/board.content.page');
 
-
 describe('[Create Board Feature] #Boards', function () {
 
     this.retries(1);                                                                                                                                                                                                                                                                                                                                                                           ;

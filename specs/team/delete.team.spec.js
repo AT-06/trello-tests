@@ -3,8 +3,7 @@ let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
 let rightSideBar = require('../../pages/rightsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 let teamToolBar = require('../../pages/teams/team.toolbar.page');
-
-describe('[Delete a Team feature]', function () {
+describe('[Delete a Team feature] #Teams', function () {
     this.retries(1);
 
     let team = {
@@ -19,7 +18,7 @@ describe('[Delete a Team feature]', function () {
         await leftSideBar.clickHomeButton();
     });
 
-    it('Delete a team', async () => {
+    it('Delete a team #Acceptance', async () => {
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
         await teamContentPage.deleteTeam();

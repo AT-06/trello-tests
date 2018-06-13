@@ -9,12 +9,12 @@ class SettingsPage {
      * Constructor.
      */
     constructor() {
-        this.deleteOption = element(by.css('#content a.quiet-button'));
-        this.groupName = element(by.css('#content h1.u-inline'));
-        this.editButton = element(by.xpath('//div[@class="js-current-details"]/child::a'));
-        this.nameGroup = element(by.name('displayName'));
-        this.descriptionTeam = element(by.css('textarea[name="desc"]'));
-        this.saveButton = element(by.className('primary wide js-submit-profile'));
+        this.deleteOption = element(By.css('#content a.quiet-button'));
+        this.groupName = element(By.css('#content h1.u-inline'));
+        this.editButton = element(By.xpath('//div[@class="js-current-details"]/child::a'));
+        this.nameGroup = element(By.name('displayName'));
+        this.descriptionTeam = element(By.css('textarea[name="desc"]'));
+        this.saveButton = element(By.className('primary wide js-submit-profile'));
     }
 
     /**
