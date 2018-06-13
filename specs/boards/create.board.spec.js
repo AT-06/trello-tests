@@ -3,7 +3,6 @@ const boards = require('../../pages/boards/board.manager.page');
 const toolBar = require('../../pages/boards/board.toolbar.page');
 const leftSideBar = require('../../pages/boards/board.leftsidebar.page');
 const content = require('../../pages/boards/board.content.page');
-const async = require('asyncawait/async');
 
 describe('[Create Board Feature] #Boards', function () {
 
