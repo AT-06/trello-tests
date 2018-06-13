@@ -1,9 +1,10 @@
 const loginPage = require('../../pages/login.page');
-let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
-let settingMenu = require('../../pages/settings.page');
-let teamToolBar = require('../../pages/teams/team.toolbar.page');
-let rightSideBar = require('../../pages/rightsidebar.page');
-let teamContentPage = require('../../pages/teams/team.content.page');
+const leftSideBar = require('../../pages/teams/team.leftsidebar.page');
+const settingMenu = require('../../pages/settings.page');
+const teamToolBar = require('../../pages/teams/team.toolbar.page');
+const rightSideBar = require('../../pages/rightsidebar.page');
+const teamContentPage = require('../../pages/teams/team.content.page');
+const toolBar = require('../../pages/boards/board.toolbar.page');
 
 describe('[Create a Team feature] #Teams', function () {
     this.retries(1);
@@ -15,10 +16,11 @@ describe('[Create a Team feature] #Teams', function () {
 
     beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
+        await toolBar.goHomePage();
     });
 
     afterEach(async function () {
-        await teamToolBar.goHomePage();
+        await toolBar.goHomePage();
         await leftSideBar.clickHomeButton();
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();

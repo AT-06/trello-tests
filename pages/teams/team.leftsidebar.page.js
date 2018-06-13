@@ -13,7 +13,8 @@ class TeamLeftSideBar {
      * Constructor.
      */
     constructor() {
-        this.addTeamButton = element(By.xpath('//span[text()= "Create a team"]'));
+        this.addTeamButton = element(By.xpath('//nav[@class="home-left-sidebar-container"]/descendant::button'));
+        // this.addTeamButton = element(by.xpath('//span[text()= "Create a team"]'));
         this.teamList = '//span[text()="{}"]/parent::a/parent::li';
         this.leftSpan = '//div[text()="teams"]/following::ul/descendant::span';
         this.homeButton = element(By.xpath('//span[text()="Home"]'));
@@ -43,7 +44,7 @@ class TeamLeftSideBar {
      */
     addTeam(teamInputs) {
         return this.clickAddTeamButton()
-            .then(teamCreation.fillTeamFields(teamInputs));
+            .then(() => teamCreation.fillTeamFields(teamInputs));
     }
 
     /**
