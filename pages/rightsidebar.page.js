@@ -10,7 +10,8 @@ class RightSidebarPage {
      * Constructor.
      */
     constructor() {
-        this.settingsButton = element(by.xpath('//span[text()="Settings"]'));
+        // this.settingsButton = element(by.xpath('//span[text()="Settings"]'));
+        this.settingsButton = element(by.xpath('//span[text()="Settings"]/parent::span/parent::a/parent::div'));
     }
 
     /**

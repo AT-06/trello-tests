@@ -31,8 +31,8 @@ class TeamToolBar extends ToolBar {
      */
     addTeam(teamInputs) {
         return this.clickOnPlusButton()
-            .then(this.clickOnTeamCreation())
-            .then(teamCreationForm.fillTeamFields(teamInputs));
+            .then(() => this.clickOnTeamCreation())
+            .then(() => teamCreationForm.fillTeamFields(teamInputs));
     }
 }
 
