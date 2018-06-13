@@ -3,6 +3,7 @@ let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
 let rightSideBar = require('../../pages/rightsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 let teamToolBar = require('../../pages/teams/team.toolbar.page');
+
 describe('[Delete a Team feature] #Teams', function () {
     this.retries(1);
 
