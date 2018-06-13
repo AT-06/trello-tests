@@ -11,11 +11,10 @@ class ToolbarPage {
      * Constructor of PageObject.
      */
     constructor() {
-
-        this.plusButton = element(by.css('#header .icon-add'));
+        this.plusButton = element(By.css('#header .icon-add'));
         // this.plusButton = element(by.css('div#header span.icon-add.light'));
-        this.returnButton = element(by.className('js-back-menu'));
-        this.headerLogoToGoHome = element(by.className('header-logo-default'));
+        this.returnButton = element(By.className('js-back-menu'));
+        this.headerLogoToGoHome = element(By.className('header-logo-default'));
     }
 
     /**

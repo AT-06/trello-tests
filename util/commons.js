@@ -1,9 +1,10 @@
+'use strict';
 const timeToWait = 20000;
-const redDeleteButton = element(by.className('js-confirm full negate'));
+const redDeleteButton = element(By.className('js-confirm full negate'));
 
 
 class Commons {
-    
+
     /**
      * Method to wait a element.
      * @param element WebElement.
@@ -64,7 +65,7 @@ class Commons {
      * @returns {promise.Promise<any>} Promise.
      */
     static clickOnLastElementOfList(list) {
-        return this.clickElement(element.all(by.xpath(list)).first());
+        return this.clickElement(element.all(By.xpath(list)).first());
     }
 
     /**
@@ -74,7 +75,7 @@ class Commons {
      * @returns {promise.Promise<any>} Promise.
      */
     static isElementPresentOnList(elementToVerify, list) {
-       return this.waitForElement(list)
+        return this.waitForElement(list)
             .then(() => elementToVerify.isPresent());
     }
 

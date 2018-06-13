@@ -11,8 +11,8 @@ class BoardModal {
      */
     constructor() {
         this.modal = {
-            name: element(by.className('subtle-input')),
-            createButton: element(by.xpath('//button[@class="primary"]'))
+            name: element(By.className('subtle-input')),
+            createButton: element(By.xpath('//button[@class="primary"]'))
         };
 
     }

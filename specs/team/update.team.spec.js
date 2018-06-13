@@ -5,7 +5,7 @@ let teamToolBar = require('../../pages/teams/team.toolbar.page');
 let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
 let teamContentPage = require('../../pages/teams/team.content.page');
 
-describe('[Edit a team feature]', function () {
+describe('[Edit a team feature] #Teams', function () {
     this.retries(1);
 
     let team = {
@@ -18,14 +18,14 @@ describe('[Edit a team feature]', function () {
         description: 'description about team modified'
     };
 
-    beforeEach(async () => {
+    beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
         await leftSideBar.addTeam(team);
         await teamToolBar.goHomePage();
         await leftSideBar.clickHomeButton();
     });
 
-    afterEach(async () => {
+    afterEach(async function () {
         await teamToolBar.goHomePage();
         await leftSideBar.clickHomeButton();
         await leftSideBar.clickLastTeam(teamModified.name);
@@ -33,7 +33,7 @@ describe('[Edit a team feature]', function () {
         await teamContentPage.deleteTeam();
     });
 
-    it('Edit a team name and description', async () => {
+    it('Edit a team name and description #Acceptance', async function () {
         await leftSideBar.clickLastTeam(team.name);
         await rightSideBar.goToTeamSettings();
         await settingMenu.editTeam(teamModified);

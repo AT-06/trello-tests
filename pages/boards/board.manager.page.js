@@ -13,12 +13,12 @@ class BoardManager extends Manager {
     constructor() {
         super();
 
-        this.boardName = element(by.className('board-header-btn board-header-btn-name js-rename-board'));
-        this.boardNameTextField = element(by.className('js-board-name js-autofocus'));
-        this.boardRenameButton = element(by.className('primary wide js-rename-board'));
-        this.closeBoardLink = element(by.className('board-menu-navigation-item-link js-close-board'));
-        this.deleteConfirmLink = element(by.className('quiet js-delete'));
-        this.managerHeader = element(by.className("board-header u-clearfix js-board-header"));
+        this.boardName = element(By.className('board-header-btn board-header-btn-name js-rename-board'));
+        this.boardNameTextField = element(By.className('js-board-name js-autofocus'));
+        this.boardRenameButton = element(By.className('primary wide js-rename-board'));
+        this.closeBoardLink = element(By.className('board-menu-navigation-item-link js-close-board'));
+        this.deleteConfirmLink = element(By.className('quiet js-delete'));
+        this.managerHeader = element(By.className('board-header u-clearfix js-board-header'));
 
 
     }

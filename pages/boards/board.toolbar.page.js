@@ -15,12 +15,12 @@ class BoardToolBar extends Toolbar {
     constructor() {
         super();
         this.boardMenu = {
-            boardButtonOnLeftToolBar: element(by.xpath('//div[@class="header-boards-button"]/child::a')),
-            createBoard: element(by.className('quiet-button js-add-board')),
+            boardButtonOnLeftToolBar: element(By.xpath('//div[@class="header-boards-button"]/child::a')),
+            createBoard: element(By.className('quiet-button js-add-board')),
             boardOnList: '//span[@title="{}"]/parent::span[contains(@class,"compact-board")]'
         };
 
-        this.createBoardOnPlusMenu = element(by.className('js-new-board'));
+        this.createBoardOnPlusMenu = element(By.className('js-new-board'));
     }
 
     /**

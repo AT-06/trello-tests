@@ -38,8 +38,8 @@ exports.config = {
      */
     getPageTimeout: 10000,
     mochaOpts: {
-        grep: "tags",
-        reporter: "spec",
+        grep: 'tags',
+        reporter: 'spec',
         ui: 'bdd',
         timeout: 150000
     },

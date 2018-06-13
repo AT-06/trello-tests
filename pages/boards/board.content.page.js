@@ -14,7 +14,7 @@ class BoardContent {
         this.boardOnContent = '//span[@class="board-tile-details is-badged"]/child::span[@title="{}"]';
         this.createBoardButton
             = element(By.xpath('//h3[text()="Personal Boards"]/parent::div/following-sibling::ul/descendant::span[contains(text(),"Create new board")]'));
-        this.boardList = element(By.className("boards-page-board-section-list"));
+        this.boardList = element(By.className('boards-page-board-section-list'));
         // We cannot improve this selector because it has other similar when you will have a
         // team and the flag is h3[text()="Personal Boards"].
     }

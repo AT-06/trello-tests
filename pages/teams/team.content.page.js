@@ -10,8 +10,8 @@ class TeamContentPage {
      * Constructor.
      */
     constructor() {
-        this.deleteTeamLink = element(by.xpath('//div[@class="window-module u-gutter"]/child::a/child::span'));
-        this.deleteTeamForEverButton = element(by.css('div#classic input.js-confirm.full.negate'));
+        this.deleteTeamLink = element(By.xpath('//div[@class="window-module u-gutter"]/child::a/child::span'));
+        this.deleteTeamForEverButton = element(By.css('div#classic input.js-confirm.full.negate'));
     }
 
     /**

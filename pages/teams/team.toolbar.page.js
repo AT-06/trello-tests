@@ -13,7 +13,7 @@ class TeamToolBar extends ToolBar {
      */
     constructor() {
         super();
-        this.teamCreation = element(by.className('js-new-org'));
+        this.teamCreation = element(By.className('js-new-org'));
     }
 
     /**

@@ -10,7 +10,7 @@ describe('[Delete Board Feature] #Boards', function () {
 
     let boardToDelete = 'Board To Delete';
 
-    beforeEach(async () => {
+    beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
         await toolBar.addBoardWithRightPlusButton(boardToDelete);
         let expectedBoardCreated = await boards.isBoardNamePresentOnManagerPage(boardToDelete);

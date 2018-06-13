@@ -13,11 +13,11 @@ class TeamLeftSideBar {
      * Constructor.
      */
     constructor() {
-        this.addTeamButton = element(by.xpath('//nav[@class="home-left-sidebar-container"]/descendant::button'));
+        this.addTeamButton = element(By.xpath('//nav[@class="home-left-sidebar-container"]/descendant::button'));
         // this.addTeamButton = element(by.xpath('//span[text()= "Create a team"]'));
         this.teamList = '//span[text()="{}"]/parent::a/parent::li';
         this.leftSpan = '//div[text()="teams"]/following::ul/descendant::span';
-        this.homeButton = element(by.xpath('//span[text()="Home"]'));
+        this.homeButton = element(By.xpath('//span[text()="Home"]'));
     }
 
     /**

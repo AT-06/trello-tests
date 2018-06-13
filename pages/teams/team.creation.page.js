@@ -10,9 +10,9 @@ class TeamCreationPage {
      * Constructor.
      */
     constructor() {
-        this.teamNameField = element(by.css('#org-display-name'));
-        this.teamDescriptionField = element(by.css('#org-desc'));
-        this.createButton = element(by.css('div#classic input.primary.wide.js-save'));
+        this.teamNameField = element(By.css('#org-display-name'));
+        this.teamDescriptionField = element(By.css('#org-desc'));
+        this.createButton = element(By.css('div#classic input.primary.wide.js-save'));
 
     }
 
