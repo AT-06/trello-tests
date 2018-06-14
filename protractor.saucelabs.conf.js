@@ -1,4 +1,7 @@
 const config = require('./config.json');
+process.env.PROSHOT_DIR = './reports/screenshots';
+process.env.multi = 'spec=- mocha-proshot=- mocha-allure-reporter=-';
+
 exports.config = {
 
     /**
@@ -47,7 +50,7 @@ exports.config = {
      */
     getPageTimeout: 10000,
     mochaOpts: {
-        reporter: 'spec',
+        reporter: 'mocha-multi',
         ui: 'bdd',
         timeout: 150000
     },

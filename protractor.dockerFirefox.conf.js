@@ -1,4 +1,8 @@
 const config = require('./config.json');
+let tags = require('./util/protractor.mocha.tags')();
+process.env.PROSHOT_DIR = './reports/screenshots';
+process.env.multi = 'spec=- mocha-proshot=- mocha-allure-reporter=-';
+
 exports.config = {
 
     /**
@@ -38,8 +42,8 @@ exports.config = {
      */
     getPageTimeout: 10000,
     mochaOpts: {
-        grep: 'tags',
-        reporter: 'spec',
+        grep: tags,
+        reporter: 'mocha-multi',
         ui: 'bdd',
         timeout: 150000
     },

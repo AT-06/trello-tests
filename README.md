@@ -13,7 +13,7 @@ What things you need to install the software and how to install them
 **Installing**
 -
 In order to execute in locally the tests, these tools need to be installed:
-- node js versin 8.11.3
+- node js version 8.11.3
         
         https://nodejs.org/es/
     
@@ -35,7 +35,7 @@ To run the tests,
         selenium-standalone start        
     NOTE: Do not close the command line and do not stop the service.
 
-- Opem a new command line in the project's root directory and download all project's dependecies,
+- Open a new command line in the project's root directory and download all project's dependencies,
       
         npm install
 
