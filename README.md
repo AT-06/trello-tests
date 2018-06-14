@@ -22,13 +22,6 @@ The framework support:
   </a>
 </p>
 
-
-
-**Prerequisites**
--
-What things you need to install the software and how to install them
-
-    Give examples
     
 **Installing**
 -
