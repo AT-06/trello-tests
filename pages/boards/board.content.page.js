@@ -1,6 +1,6 @@
 'use strict';
 const boardModal = require('../boards/board.modal');
-const commonActions = require('../../util/commons');
+const commonActions = require('../../util/commonActions');
 const format = require('string-format');
 /**
  * Page Object of Account Content.
