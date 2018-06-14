@@ -1,5 +1,4 @@
 'use strict';
-const timeToWait = 20000;
 const redDeleteButton = element(By.className('js-confirm full negate'));
 
 
@@ -13,8 +12,8 @@ class CommonActions {
     static waitForElement(element) {
         let isVisible = expectedConditions.visibilityOf(element);
         let isReady = expectedConditions.presenceOf(element);
-        return browser.wait(expectedConditions.and(isVisible, isReady), timeToWait)
-            .then(() => this.pauseInSeconds(1.5));
+        return browser.wait(expectedConditions.and(isVisible, isReady))
+            .then(() => this.pauseInSeconds(2.5));
     }
 
     /**

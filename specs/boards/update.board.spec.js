@@ -13,8 +13,6 @@ describe('[Update Board Feature] #Boards', function () {
     beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
         await toolBar.addBoardWithRightPlusButton(boardToUpdate);
-        let expectedBoardCreated = await boards.isBoardNamePresentOnManagerPage(boardToUpdate);
-        expect(expectedBoardCreated).to.be.true;
         await toolBar.goHomePage();
     });
 
