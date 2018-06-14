@@ -15,6 +15,8 @@ describe('[Edit a team feature] #Teams', function () {
 
     let teamModified = {
         name: 'Team name Modified',
+        shortName : 'team short name modified',
+        website : 'team website modified',
         description: 'description about team modified'
     };
 

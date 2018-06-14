@@ -13,6 +13,8 @@ class SettingsPage {
         this.groupName = element(By.css('#content h1.u-inline'));
         this.editButton = element(By.xpath('//div[@class="js-current-details"]/child::a'));
         this.nameGroup = element(By.name('displayName'));
+        this.shortName = element(By.css('input[name="name"]'));
+        this.website = element(By.css('input[name="website"]'));
         this.descriptionTeam = element(By.css('textarea[name="desc"]'));
         this.saveButton = element(By.className('primary wide js-submit-profile'));
     }
@@ -32,6 +34,24 @@ class SettingsPage {
      */
     setNameGroup(values) {
         return commonActions.setElementValues(this.nameGroup, values);
+    }
+
+    /**
+     * Method to set short name.
+     * @param value to fill shor name field.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
+    setShortName(values) {
+        return commonActions.setElementValues(this.shortName, values);
+    }
+
+    /**
+     * Method to set website.
+     * @param value to fill website field.
+     * @returns {promise.Promise<ActionSequence>} Promise.
+     */
+    setWebsite(values) {
+        return commonActions.setElementValues(this.website, values);
     }
 
     /**
@@ -88,6 +108,8 @@ class SettingsPage {
     iterateJson(teamInputs) {
         let jsonToFillFields = {
             'name' : () => this.setNameGroup(teamInputs.name),
+            'shortName' : () => this.setShortName(teamInputs.shortName),
+            'website' : () => this.setWebsite(teamInputs.website),
             'description' : () => this.setTeamDescription(teamInputs.description)
         };
         Object.keys(teamInputs).forEach(key => {
