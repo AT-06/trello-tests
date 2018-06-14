@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://trello.com/">
-  <img alt="fundempresa" width="728" height="292" src="http://www.freelogovectors.net/wp-content/uploads/2017/03/trello-logo.png" />
+  <img alt="fundempresa" width="628" height="192" src="http://www.freelogovectors.net/wp-content/uploads/2017/03/trello-logo.png" />
   </a>
 </p>
 
@@ -9,6 +9,20 @@
 This project main goal is to create an GUI automation framework that will test acceptance tests for Trello application.
 For this project Protractor testing framework has been chosen. Due to protractor's asynchronous testing, Mocha is used to run tests. 
 The approach of this project is BDD, that's why Chai library is used to get all assertions. 
+
+**Browser Support**
+
+The framework support:
+
+<p align="center">
+  <img alt="fundempresa" width="50" height="50" src="https://vignette.wikia.nocookie.net/mipequeoponyfanlabor/images/8/8b/Mozilla-firefox-vector-logo.png/revision/latest?cb=20130410042340&path-prefix=es" />
+  <img alt="fundempresa" width="50" height="50" src="https://cdn.icon-icons.com/icons2/1381/PNG/512/googlechrome_93595.png" />
+  <img alt="fundempresa" width="50" height="50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2AwozGF0Gx6Z3zOy11nfS6R0oGIBnvwySJUajcSSTfNztaG3H" />
+  <img alt="fundempresa" width="50" height="50" src="http://icons.iconarchive.com/icons/johanchalibert/mac-osx-yosemite/1024/safari-icon.png" />
+  </a>
+</p>
+
+
 
 **Prerequisites**
 -
@@ -67,6 +81,38 @@ In order to run tests execute the following command in command line where depend
 
         npm run browserstack        
 
+To run on docker with Firefox node use:
+
+        npm run dockerFirefox
+            
+To run on docker with Chrome node use:
+
+        npm run dockerChrome
+            
+To run with tag you can choose different commands:
+
+        npm run team
+       
+        npm run boards
+        
+        npm run acceptance 
+        
+To combine tag you can combine or use this commands:
+
+        npm run team acceptance
+        
+        npm run boards acceptance
+        
+        npm run team boards
+       
+**Eslint**
+    
+ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs. In many ways, it is similar to JSLint and JSHint with a few exceptions:
+
+You can run eslint with command:
+
+        npm run eslint
+
 **Framework structure**
 -
 Two features from trello application has been taken to test,
@@ -85,13 +131,7 @@ Prefix determines the functionality of the feature,
     
     create.board.spec.js
     udpate.team.spec.js
-The second word the feature it belongs to and the prefix determines it is a test spec.
-     
-**Coding style tests**
--
-Explain what these tests test and why
-
-    Give an example
+The second word the feature it belongs to and the prefix determines it is a test spec. 
 
 **Contacts**
 -
