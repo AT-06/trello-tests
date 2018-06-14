@@ -28,10 +28,7 @@ exports.config = {
      * testing on multiple browsers, use the multiCapabilities array.
      */
     capabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-            args: ["--headless", "--window-size=1280x1024"]
-        }
+        browserName: 'chrome'
     },
 
     /**
