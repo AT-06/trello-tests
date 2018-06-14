@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="http://trello.com/">
+  <img alt="fundempresa" width="728" height="292" src="http://www.freelogovectors.net/wp-content/uploads/2017/03/trello-logo.png" />
+  </a>
+</p>
+
 # trello-tests
 
 This project main goal is to create an GUI automation framework that will test acceptance tests for Trello application.
