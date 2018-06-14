@@ -27,6 +27,6 @@ describe('[Delete a Team feature] #Teams', function () {
         await teamContentPage.deleteTeam();
         await teamToolBar.goHomePage();
         await leftSideBar.clickHomeButton();
-        //expect(leftSideBar.isTeamDeleted(team.name)).to.be.true;
+        expect(leftSideBar.doesTeamExistInLeftSideBar(team.name)).not.to.be.true;
     });
 });
