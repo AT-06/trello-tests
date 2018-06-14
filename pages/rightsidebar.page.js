@@ -1,5 +1,5 @@
 'use strict';
-let commonActions = require('../util/commons');
+let commonActions = require('../util/commonActions');
 
 /**
  * Page object of right side bar.

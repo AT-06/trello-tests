@@ -1,5 +1,5 @@
 'use strict';
-let common = require('../../util/commons');
+let common = require('../../util/commonActions');
 
 /**
  * Page object to create a new team.

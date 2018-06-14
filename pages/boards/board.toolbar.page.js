@@ -1,7 +1,7 @@
 'use strict';
 const Toolbar = require('../toolbar.page');
 const boardModal = require('../boards/board.modal');
-const commonActions = require('../../util/commons');
+const commonActions = require('../../util/commonActions');
 const format = require('string-format');
 
 /**

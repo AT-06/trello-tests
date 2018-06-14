@@ -1,6 +1,6 @@
 'use strict';
 const ToolBar = require('../toolbar.page');
-let commonActions = require('../../util/commons');
+let commonActions = require('../../util/commonActions');
 let teamCreationForm = require('../teams/team.creation.page');
 
 /**

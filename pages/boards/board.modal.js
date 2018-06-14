@@ -1,5 +1,5 @@
 'use strict';
-const commonActions = require('../../util/commons');
+const commonActions = require('../../util/commonActions');
 
 /**
  * Page Object of Account Content.
