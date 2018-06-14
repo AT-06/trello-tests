@@ -1,7 +1,8 @@
 const config = require('./config.json');
 let tags = require('./util/protractor.mocha.tags')();
 process.env.PROSHOT_DIR = './reports/screenshots';
-process.env.multi = 'spec=- mocha-proshot=-';
+process.env.multi = 'spec=- mocha-proshot=- mocha-allure-reporter=-';
+
 
 exports.config = {
 
