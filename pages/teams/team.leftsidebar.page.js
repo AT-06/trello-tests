@@ -1,6 +1,6 @@
 'use strict';
 
-let commonActions = require('../../util/commons');
+let commonActions = require('../../util/commonActions');
 const format = require('string-format');
 let teamCreation = require('../teams/team.creation.page');
 

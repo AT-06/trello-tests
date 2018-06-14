@@ -1,4 +1,4 @@
-const commonActions = require('../util/commons');
+const commonActions = require('../util/commonActions');
 
 /**
  * PageObject of Manager.

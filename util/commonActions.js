@@ -2,7 +2,7 @@
 const redDeleteButton = element(By.className('js-confirm full negate'));
 
 
-class Commons {
+class CommonActions {
 
     /**
      * Method to wait a element.
@@ -106,4 +106,4 @@ class Commons {
     }
 }
 
-module.exports = Commons;
+module.exports = CommonActions;

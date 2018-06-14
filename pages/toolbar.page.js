@@ -1,6 +1,6 @@
 'use strict';
 
-let commonActions = require('../util/commons');
+let commonActions = require('../util/commonActions');
 
 /**
  * PageObject of ToolBar.
