@@ -1,10 +1,8 @@
 # trello-tests
 
-One Paragraph of project description goes here
-
-**Getting Started**
--
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+This project main goal is to create an GUI automation framework that will test acceptance tests for Trello application.
+For this project Protractor testing framework has been chosen. Due to protractor's asynchronous testing, Mocha is used to run tests. 
+The approach of this project is BDD, that's why Chai library is used to get all assertions. 
 
 **Prerequisites**
 -
