@@ -1,8 +1,9 @@
-let loginPage = require('../../pages/login.page');
-let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
-let rightSideBar = require('../../pages/rightsidebar.page');
-let teamContentPage = require('../../pages/teams/team.content.page');
-let teamToolBar = require('../../pages/teams/team.toolbar.page');
+const loginPage = require('../../pages/login.page');
+const leftSideBar = require('../../pages/teams/team.leftsidebar.page');
+const rightSideBar = require('../../pages/rightsidebar.page');
+const teamContentPage = require('../../pages/teams/team.content.page');
+const teamToolBar = require('../../pages/teams/team.toolbar.page');
+const toolBar = require('../../pages/boards/board.toolbar.page');
 
 describe('[Delete a Team feature] #Teams', function () {
     this.retries(1);
@@ -14,8 +15,9 @@ describe('[Delete a Team feature] #Teams', function () {
 
     beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
+        await toolBar.goHomePage();
         await leftSideBar.addTeam(team);
-        await teamToolBar.goHomePage();
+        await toolBar.goHomePage();
         await leftSideBar.clickHomeButton();
     });
 

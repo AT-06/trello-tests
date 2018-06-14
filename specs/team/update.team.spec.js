@@ -1,9 +1,10 @@
-let loginPage = require('../../pages/login.page');
-let settingMenu = require('../../pages/settings.page');
-let rightSideBar = require('../../pages/rightsidebar.page');
-let teamToolBar = require('../../pages/teams/team.toolbar.page');
-let leftSideBar = require('../../pages/teams/team.leftsidebar.page');
-let teamContentPage = require('../../pages/teams/team.content.page');
+const loginPage = require('../../pages/login.page');
+const settingMenu = require('../../pages/settings.page');
+const rightSideBar = require('../../pages/rightsidebar.page');
+const teamToolBar = require('../../pages/teams/team.toolbar.page');
+const leftSideBar = require('../../pages/teams/team.leftsidebar.page');
+const teamContentPage = require('../../pages/teams/team.content.page');
+const toolBar = require('../../pages/boards/board.toolbar.page');
 
 describe('[Edit a team feature] #Teams', function () {
     this.retries(1);
@@ -22,13 +23,14 @@ describe('[Edit a team feature] #Teams', function () {
 
     beforeEach(async function () {
         await loginPage.loginAccount(login.email, login.password);
+        await toolBar.goHomePage();
         await leftSideBar.addTeam(team);
-        await teamToolBar.goHomePage();
+        await toolBar.goHomePage();
         await leftSideBar.clickHomeButton();
     });
 
     afterEach(async function () {
-        await teamToolBar.goHomePage();
+        await toolBar.goHomePage();
         await leftSideBar.clickHomeButton();
         await leftSideBar.clickLastTeam(teamModified.name);
         await rightSideBar.goToTeamSettings();
