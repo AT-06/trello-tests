@@ -1,4 +1,5 @@
 const config = require('./config.json');
+let tags = require('./util/protractor.mocha.tags')();
 process.env.PROSHOT_DIR = './reports/screenshots';
 process.env.multi = 'spec=- mocha-proshot=- mocha-allure-reporter=-';
 
@@ -31,11 +32,12 @@ exports.config = {
      * testing on a single browser, use the capabilities option. If you are
      * testing on multiple browsers, use the multiCapabilities array.
      */
-    capabilities: {
-        grep: 'tags',
-        browserName: 'chrome',
-        platform: 'Windows 10',
-        version: '66.0'
+    getPageTimeout: 10000,
+    mochaOpts: {
+        grep: tags,
+        reporter: 'mocha-multi',
+        ui: 'bdd',
+        timeout: 150000
     },
 
     /**
