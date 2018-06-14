@@ -14,9 +14,8 @@ class TeamLeftSideBar {
      */
     constructor() {
         this.addTeamButton = element(By.xpath('//nav[@class="home-left-sidebar-container"]/descendant::button'));
-        // this.addTeamButton = element(by.xpath('//span[text()= "Create a team"]'));
         this.teamList = '//span[text()="{}"]/parent::a/parent::li';
-        this.leftSpan = '//div[text()="teams"]/following::ul/descendant::span';
+        this.leftFirstListElement = element(By.xpath('//nav[@class="home-left-sidebar-container"]/descendant::button/ancestor::ul/child::li[1]'));
         this.homeButton = element(By.xpath('//span[text()="Home"]'));
     }
 
@@ -55,6 +54,15 @@ class TeamLeftSideBar {
     clickLastTeam(teamName) {
         let foo = format(this.teamList, teamName);
         return commonActions.clickElement(element(by.xpath(foo)));
+    }
+
+    /**
+     * Method to know if team was deleted.
+     * @param teamName to verify.
+     * @returns {promise.Promise<boolean>} Promise.
+     */
+    doesTeamExistInLeftSideBar(teamName) {
+        return commonActions.isElementContainsText(this.leftFirstListElement, teamName);
     }
 }
 

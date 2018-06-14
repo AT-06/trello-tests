@@ -34,7 +34,7 @@ exports.config = {
         'os_version': '10',
         'browserName': 'Edge',
         'browser_version': '17.0',
-        'resolution': '1280x1024'
+        'resolution': '2048x1536'
     },
 
     /**
